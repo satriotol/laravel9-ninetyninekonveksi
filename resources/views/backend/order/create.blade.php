@@ -10,7 +10,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-12 col-md-12">
+        <div class="col-md-{{ isset($order) ? '5' : '12' }}">
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Form Order</h3>
@@ -79,6 +79,11 @@
                 </div>
             </div>
         </div>
+        @isset($order)
+            <div class="col-md-7">
+                @include('backend.order_detail.index')
+            </div>
+        @endisset
     </div>
 @endsection
 @push('custom-scripts')

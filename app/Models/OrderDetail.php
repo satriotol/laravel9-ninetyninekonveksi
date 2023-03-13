@@ -9,13 +9,13 @@ use OwenIt\Auditing\Contracts\Auditable;
 use OwenIt\Auditing\Auditable as AuditableTrait;
 use Illuminate\Support\Str;
 
-class Order extends Model implements Auditable
+class OrderDetail extends Model implements Auditable
 {
     use HasFactory, AuditableTrait, HasUuids;
 
-    protected $table = 'orders';
+    protected $table = 'order_details';
 
-    protected $fillable = ["user_id", "title", "name", "phone", "start_at", "end_at", "description"];
+    protected $fillable = ["order_id", "name", "qty", "price", "original_price"];
     protected static function boot()
     {
         parent::boot();
@@ -24,16 +24,8 @@ class Order extends Model implements Auditable
             $model->{$model->getKeyName()} = Str::uuid()->toString();
         });
     }
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'user_id', 'id');
-    }
-    public function order_details()
-    {
-        return $this->hasMany(OrderDetail::class, 'order_id', 'id');
-    }
     public function totalPrice()
     {
-        return $this->order_details->sum('price');
+        return $this->price * $this->qty;
     }
 }
