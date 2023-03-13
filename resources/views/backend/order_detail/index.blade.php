@@ -88,10 +88,11 @@
                         <tr>
                             <td>{{ $order_detail->name }}</td>
                             <td>{{ $order_detail->qty }}</td>
-                            <td>{{ number_format($order_detail->price) }} <br>
-                                <div class="badge bg-primary">{{ number_format($order_detail->original_price) }}</div>
+                            <td>Rp. {{ number_format($order_detail->price) }} <br>
+                                <div class="badge bg-primary">Rp. {{ number_format($order_detail->original_price) }}
+                                </div>
                             </td>
-                            <td>{{ number_format($order_detail->totalPrice()) }}</td>
+                            <td>Rp. {{ number_format($order_detail->totalPrice()) }}</td>
                             <td class="text-center">
                                 <form action="{{ route('order_detail.destroy', $order_detail->id) }}" method="post">
                                     @csrf
@@ -108,7 +109,7 @@
                 <tr>
                     <td>Total Harga</td>
                     <td>:</td>
-                    <td>Rp. {{ $order->order_details }}</td>
+                    <td>Rp. {{ number_format($order->totalPrice()) }}</td>
                 </tr>
             </table>
         </div>

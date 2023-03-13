@@ -34,6 +34,10 @@ class Order extends Model implements Auditable
     }
     public function totalPrice()
     {
-        return $this->order_details->sum('price');
+        $totalPrice = 0;
+        foreach ($this->order_details as $order_detail) {
+            $totalPrice += $order_detail->price * $order_detail->qty;
+        }
+        return $totalPrice;
     }
 }
