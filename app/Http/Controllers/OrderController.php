@@ -47,7 +47,15 @@ class OrderController extends Controller
     }
     public function update(Request $request, Order $order)
     {
-        $data = $request->validate([]);
+        $data = $request->validate([
+            'user_id' => 'nullable',
+            "title" => 'required',
+            "name" => 'required',
+            "phone" => 'required',
+            "start_at" => 'required',
+            "end_at" => 'required',
+            "description" => 'required'
+        ]);
         $order->update($data);
         session()->flash('success');
         return redirect(route('order.index'));
