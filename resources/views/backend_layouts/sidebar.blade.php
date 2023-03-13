@@ -28,6 +28,12 @@
                         href="{{ route('dashboard') }}"><i class="side-menu__icon fe fe-home"></i><span
                             class="side-menu__label">Dashboard</span></a>
                 </li>
+                @can('order-index')
+                    <li>
+                        <a class="side-menu__item {{ active_class(['order.*']) }}" href="{{ route('order.index') }}"><i
+                                class="side-menu__icon fe fe-grid"></i><span class="side-menu__label">order</span></a>
+                    </li>
+                @endcan
                 @canany(['crud-index'])
                     <li class="sub-category">
                         <h3>CRUD</h3>
