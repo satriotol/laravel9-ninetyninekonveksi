@@ -15,7 +15,7 @@ class OrderPayment extends Model implements Auditable
 
     protected $table = 'order_payments';
 
-    protected $fillable = ["order_id","value","date"];
+    protected $fillable = ["order_id", "value", "date"];
     protected static function boot()
     {
         parent::boot();
@@ -23,5 +23,9 @@ class OrderPayment extends Model implements Auditable
         static::creating(function ($model) {
             $model->{$model->getKeyName()} = Str::uuid()->toString();
         });
+    }
+    public function order()
+    {
+        return $this->belongsTo(Order::class, 'order_id', 'id');
     }
 }

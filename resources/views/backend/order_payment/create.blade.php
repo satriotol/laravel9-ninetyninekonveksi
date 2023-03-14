@@ -25,28 +25,28 @@
                             @method('PUT')
                         @endisset
                         <div class='form-group'>
-{!! Form::label('order_id', 'Relasi Order') !!}
-{!! Form::text('order_id', isset($order_payment) ? $order_payment->order_id : @old('order_id'), [
-                    'required',
-                    'class' => 'form-control',
-                    'placeholder' => 'Masukkan Relasi Order',
-                ]) !!}</div>
+                            {!! Form::label('order_id', 'Relasi Order') !!}
+                            {!! Form::text('order_id', isset($order_payment) ? $order_payment->order_id : @old('order_id'), [
+                                'required',
+                                'class' => 'form-control',
+                                'placeholder' => 'Masukkan Relasi Order',
+                            ]) !!}</div>
 
-<div class='form-group'>
-{!! Form::label('value', 'Nominal') !!}
-{!! Form::text('value', isset($order_payment) ? $order_payment->value : @old('value'), [
-                    'required',
-                    'class' => 'form-control',
-                    'placeholder' => 'Masukkan Nominal',
-                ]) !!}</div>
+                        <div class='form-group'>
+                            {!! Form::label('value', 'Nominal') !!}
+                            {!! Form::text('value', isset($order_payment) ? $order_payment->value : @old('value'), [
+                                'required',
+                                'class' => 'form-control',
+                                'placeholder' => 'Masukkan Nominal',
+                            ]) !!}</div>
 
-<div class='form-group'>
-{!! Form::label('date', 'Tanggal') !!}
-{!! Form::date('date', isset($order_payment) ? $order_payment->date : @old('date'), [
-                    'required',
-                    'class' => 'form-control',
-                    'placeholder' => 'Masukkan Tanggal',
-                ]) !!}</div>
+                        <div class='form-group'>
+                            {!! Form::label('date', 'Tanggal') !!}
+                            {!! Form::date('date', isset($order_payment) ? $order_payment->date : @old('date'), [
+                                'required',
+                                'class' => 'form-control',
+                                'placeholder' => 'Masukkan Tanggal',
+                            ]) !!}</div>
                         <div class="text-end">
                             <a class="btn btn-warning" href="{{ route('order_payment.index') }}">Kembali</a>
                             <button class="btn btn-primary" type="submit">Submit</button>

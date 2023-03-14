@@ -32,6 +32,10 @@ class Order extends Model implements Auditable
     {
         return $this->hasMany(OrderDetail::class, 'order_id', 'id');
     }
+    public function order_payments()
+    {
+        return $this->hasMany(OrderPayment::class, 'order_id', 'id');
+    }
     public function totalPrice()
     {
         $totalPrice = 0;
@@ -47,5 +51,13 @@ class Order extends Model implements Auditable
             $totalPrice += $order_detail->original_price * $order_detail->qty;
         }
         return $totalPrice;
+    }
+    public function totalPayment()
+    {
+        $totalPayment = 0;
+        foreach ($this->order_payments as $order_payment) {
+            $totalPayment += $order_payment->value;
+        }
+        return $totalPayment;
     }
 }

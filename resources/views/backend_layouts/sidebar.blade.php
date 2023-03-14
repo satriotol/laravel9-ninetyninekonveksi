@@ -31,7 +31,15 @@
                 @can('order-index')
                     <li>
                         <a class="side-menu__item {{ active_class(['order.*']) }}" href="{{ route('order.index') }}"><i
-                                class="side-menu__icon fe fe-grid"></i><span class="side-menu__label">order</span></a>
+                                class="side-menu__icon fe fe-grid"></i><span class="side-menu__label">Pesanan</span></a>
+                    </li>
+                @endcan
+                @can('order-create')
+                    <li>
+                        <a class="side-menu__item {{ active_class(['order.create']) }}"
+                            href="{{ route('order.create') }}"><i class="side-menu__icon fe fe-grid"></i><span
+                                class="side-menu__label">Buat
+                                Pesanan</span></a>
                     </li>
                 @endcan
                 @canany(['crud-index'])

@@ -18,7 +18,7 @@ class OrderPaymentController extends Controller
     public function index()
     {
         $order_payments = OrderPayment::paginate();
-        return view('backend.order_payment.index',compact('order_payments'));
+        return view('backend.order_payment.index', compact('order_payments'));
     }
     public function create()
     {
@@ -27,11 +27,13 @@ class OrderPaymentController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-
+            'order_id' => 'required',
+            'value' => 'required',
+            'date' => 'required',
         ]);
         OrderPayment::create($data);
         session()->flash('success');
-        return redirect(route('order_payment.index'));
+        return back();
     }
     public function edit(OrderPayment $order_payment)
     {
@@ -39,8 +41,7 @@ class OrderPaymentController extends Controller
     }
     public function update(Request $request, OrderPayment $order_payment)
     {
-        $data = $request->validate([
-        ]);
+        $data = $request->validate([]);
         $order_payment->update($data);
         session()->flash('success');
         return redirect(route('order_payment.index'));

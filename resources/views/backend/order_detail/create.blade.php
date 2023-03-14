@@ -52,7 +52,7 @@
                             {!! Form::label('price', 'Harga') !!}
                             {!! Form::text('price', isset($order_detail) ? $order_detail->price : @old('price'), [
                                 'required',
-                                'class' => 'form-control',
+                                'class' => 'form-control money',
                                 'placeholder' => 'Masukkan Harga',
                             ]) !!}</div>
 
