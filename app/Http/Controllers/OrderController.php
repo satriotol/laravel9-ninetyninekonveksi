@@ -37,9 +37,13 @@ class OrderController extends Controller
             "description" => 'required'
         ]);
         $data['user_id'] = Auth::user()->id;
-        Order::create($data);
+        $order = Order::create($data);
         session()->flash('success');
-        return redirect(route('order.index'));
+        return redirect(route('order.edit', $order->id));
+    }
+    public function show(Order $order)
+    {
+        return view('backend.order.show', compact('order'));
     }
     public function edit(Order $order)
     {

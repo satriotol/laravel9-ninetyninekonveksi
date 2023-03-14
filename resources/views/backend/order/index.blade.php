@@ -47,6 +47,10 @@
                                             <form action="{{ route('order.destroy', $order->id) }}" method="post">
                                                 @csrf
                                                 @method('delete')
+                                                <a class="btn btn-sm btn-primary"
+                                                    href="{{ route('order.show', $order->id) }}">
+                                                    Detail
+                                                </a>
                                                 <a class="btn btn-sm btn-warning"
                                                     href="{{ route('order.edit', $order->id) }}">
                                                     Edit

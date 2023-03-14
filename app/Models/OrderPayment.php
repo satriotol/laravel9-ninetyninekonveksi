@@ -9,13 +9,13 @@ use OwenIt\Auditing\Contracts\Auditable;
 use OwenIt\Auditing\Auditable as AuditableTrait;
 use Illuminate\Support\Str;
 
-class OrderDetail extends Model implements Auditable
+class OrderPayment extends Model implements Auditable
 {
     use HasFactory, AuditableTrait, HasUuids;
 
-    protected $table = 'order_details';
+    protected $table = 'order_payments';
 
-    protected $fillable = ["order_id", "name", "qty", "price", "original_price"];
+    protected $fillable = ["order_id","value","date"];
     protected static function boot()
     {
         parent::boot();
@@ -23,13 +23,5 @@ class OrderDetail extends Model implements Auditable
         static::creating(function ($model) {
             $model->{$model->getKeyName()} = Str::uuid()->toString();
         });
-    }
-    public function totalRealPrice()
-    {
-        return $this->original_price * $this->qty;
-    }
-    public function totalPrice()
-    {
-        return $this->price * $this->qty;
     }
 }

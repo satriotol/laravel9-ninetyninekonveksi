@@ -40,4 +40,12 @@ class Order extends Model implements Auditable
         }
         return $totalPrice;
     }
+    public function totalRealPrice()
+    {
+        $totalPrice = 0;
+        foreach ($this->order_details as $order_detail) {
+            $totalPrice += $order_detail->original_price * $order_detail->qty;
+        }
+        return $totalPrice;
+    }
 }

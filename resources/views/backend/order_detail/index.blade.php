@@ -3,15 +3,54 @@
         <h3 class="card-title">OrderDetail</h3>
     </div>
     <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <table class="table">
+                    <tr>
+                        <td>Judul</td>
+                        <td>:</td>
+                        <td>{{ $order->title }}</td>
+                    </tr>
+                    <tr>
+                        <td>Nama Pemesan</td>
+                        <td>:</td>
+                        <td>{{ $order->name }}</td>
+                    </tr>
+                    <tr>
+                        <td>Nomor Hp</td>
+                        <td>:</td>
+                        <td>{{ $order->phone }}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-6">
+                <table class="table">
+                    <tr>
+                        <td>Tanggal</td>
+                        <td>:</td>
+                        <td>{{ $order->start_at }} s/d {{ $order->end_at }}</td>
+                    </tr>
+                    <tr>
+                        <td>Marketing</td>
+                        <td>:</td>
+                        <td>{{ $order->user->name }}</td>
+                    </tr>
+                    <tr>
+                        <td>Status</td>
+                        <td>:</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
         <div class="text-end mb-2">
             <button class="btn btn-sm btn-primary" type="button" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">Tambah</button>
+                data-bs-target="#exampleModal">Tambah Pesanan</button>
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Detail Pemesanan</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                 aria-label="Close"></button>
                         </div>
@@ -80,20 +119,12 @@
                         <th>Kuantitas</th>
                         <th>Harga</th>
                         <th>Total</th>
-                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($order->order_details as $order_detail)
                         <tr>
-                            <td>{{ $order_detail->name }}</td>
-                            <td>{{ $order_detail->qty }}</td>
-                            <td>Rp. {{ number_format($order_detail->price) }} <br>
-                                <div class="badge bg-primary">Rp. {{ number_format($order_detail->original_price) }}
-                                </div>
-                            </td>
-                            <td>Rp. {{ number_format($order_detail->totalPrice()) }}</td>
-                            <td class="text-center">
+                            <td>{{ $order_detail->name }} <br>
                                 <form action="{{ route('order_detail.destroy', $order_detail->id) }}" method="post">
                                     @csrf
                                     @method('delete')
@@ -101,16 +132,25 @@
                                         onclick="return confirm('Are you sure?')" value="Delete" id="">
                                 </form>
                             </td>
+                            <td>{{ $order_detail->qty }}</td>
+                            <td>Rp. {{ number_format($order_detail->price) }} <br>
+                                <div class="badge bg-primary">Rp. {{ number_format($order_detail->original_price) }}
+                                </div>
+                            </td>
+                            <td>Rp. {{ number_format($order_detail->totalPrice()) }} <br>
+                                <div class="badge bg-primary">Rp. {{ number_format($order_detail->totalRealPrice()) }}
+                                </div>
+                            </td>
                         </tr>
                     @endforeach
+                    <tr>
+                        <td colspan="3" class="text-center">Total Harga</td>
+                        <td>Rp. {{ number_format($order->totalPrice()) }} <br>
+                            <div class="badge bg-primary">Rp. {{ number_format($order->totalRealPrice()) }}
+                            </div>
+                        </td>
+                    </tr>
                 </tbody>
-            </table>
-            <table class="table">
-                <tr>
-                    <td>Total Harga</td>
-                    <td>:</td>
-                    <td>Rp. {{ number_format($order->totalPrice()) }}</td>
-                </tr>
             </table>
         </div>
     </div>
