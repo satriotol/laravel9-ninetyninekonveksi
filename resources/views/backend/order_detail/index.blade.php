@@ -43,6 +43,8 @@
             </div>
         </div>
         <div class="text-end mb-2">
+            <a href="{{ route('order.generatePdf', $order->id) }}" target="_blank" class="btn btn-sm btn-danger">Export
+                PDF</a>
             <button class="btn btn-sm btn-primary" type="button" data-bs-toggle="modal"
                 data-bs-target="#exampleModal">Tambah Pesanan</button>
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"

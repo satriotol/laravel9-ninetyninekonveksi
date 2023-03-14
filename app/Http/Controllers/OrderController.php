@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Order;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
@@ -69,5 +71,12 @@ class OrderController extends Controller
         $order->delete();
         session()->flash('success');
         return back();
+    }
+    public function generatePdf($orderId)
+    {
+        $order = Order::find($orderId);
+        $date = Carbon::now();
+        $pdf = Pdf::loadView('pdf_test', compact('order', 'date'));
+        return $pdf->stream('test.pdf');
     }
 }
