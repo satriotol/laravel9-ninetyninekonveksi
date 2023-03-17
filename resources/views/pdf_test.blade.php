@@ -135,7 +135,7 @@
     </div>
     <div class="left-asset">
 
-        {{-- <img class="img-logo" src="https://ni.jaggsstudio.com/99logo-min.jpg" alt=""> --}}
+        <img class="img-logo" src="{{ asset('uploads/' . $setting->logo) }}" alt="">
         <p class="title color-dg">
             Faktur INV/{{ $order->id }}
         </p>

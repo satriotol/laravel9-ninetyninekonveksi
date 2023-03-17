@@ -23,8 +23,9 @@ class UploadController extends Controller
             ]);
             return $file;
         };
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
+        
+        if ($request->hasFile('logo')) {
+            $file = $request->file('logo');
             $name = $file->getClientOriginalName();
             $file_name = date('mdYHis') . '-' . $name;
             $file = $file->storeAs('image', $file_name, 'public_uploads');

@@ -58,6 +58,12 @@
                         <h3>User Management</h3>
                     </li>
                 @endcan
+                @can('setting-index')
+                    <li>
+                        <a class="side-menu__item {{ active_class(['setting.*']) }}" href="{{ route('setting.index') }}"><i
+                                class="side-menu__icon fe fe-grid"></i><span class="side-menu__label">setting</span></a>
+                    </li>
+                @endcan
                 @can('user-index')
                     <li>
                         <a class="side-menu__item {{ active_class(['user.*']) }}" href="{{ route('user.index') }}"><i
