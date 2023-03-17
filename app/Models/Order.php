@@ -73,6 +73,10 @@ class Order extends Model implements Auditable
         }
         return $totalPayment;
     }
+    public function totalRealKekurangan()
+    {
+        return $this->totalPayment() - $this->totalRealPrice();
+    }
     public function totalKekurangan()
     {
         return $this->totalPayment() - $this->totalPrice();
