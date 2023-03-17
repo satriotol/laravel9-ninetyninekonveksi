@@ -119,9 +119,8 @@
         <h3>NINETYNINE INVOICE</h3>
     </div>
     <p class="contact-info"><b>NINENTYNINE KONVEKSI</b><br>
-        {{ $order->user->name }} <br>
-        Telp. {{ $order->user->phone_number }} <br>
-        Email ninetyninekonveksi@gmail.com
+        Marketing : {{ $order->user->name }} <br>
+        Email : {{ $order->user->email }}
     </p>
     {{-- <p class="title-order">{{ $order->judul }}/{{ $order->cust_name }}</p> --}}
     <div class="date-in">
