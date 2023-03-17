@@ -115,7 +115,26 @@
 </head>
 
 <body>
+    <p class="contact-info"><b>NINENTYNINE KONVEKSI</b><br>
+        {{ $order->user->name }} <br>
+        Telp. {{ $order->user->phone_number }} <br>
+        Email ninetyninekonveksi@gmail.com
+    </p>
+    {{-- <p class="title-order">{{ $order->judul }}/{{ $order->cust_name }}</p> --}}
+    <div class="date-in">
+        <p>Tanggal Faktur</p>
+        <p style="color: black;">{{ $order->start_at }}</p>
+    </div>
+    <div class="date-out">
+        <p>Jatuh Tempo</p>
+        <p style="color: black;">{{ $order->end_at }}</p>
+    </div>
+    <div class="footer">
+        Di Cetak Pada Tanggal {{ $date }} <br>
+        <a href="">{{ route('order.show', $order->id) }}</a>
+    </div>
     <div class="left-asset">
+
         {{-- <img class="img-logo" src="https://ni.jaggsstudio.com/99logo-min.jpg" alt=""> --}}
         <p class="title color-dg">
             Faktur INV/{{ $order->id }}
@@ -152,24 +171,6 @@
                 <td>Rp. {{ number_format($order->totalKekurangan()) }}</td>
             </tr>
         </table>
-    </div>
-    <p class="contact-info"><b>NINENTYNINE KONVEKSI</b><br>
-        {{ $order->user->name }} <br>
-        Telp. {{ $order->user->phone_number }} <br>
-        Email ninetyninekonveksi@gmail.com
-    </p>
-    {{-- <p class="title-order">{{ $order->judul }}/{{ $order->cust_name }}</p> --}}
-    <div class="date-in">
-        <p>Tanggal Faktur</p>
-        <p style="color: black;">{{ $order->start_at }}</p>
-    </div>
-    <div class="date-out">
-        <p>Jatuh Tempo</p>
-        <p style="color: black;">{{ $order->end_at }}</p>
-    </div>
-    <div class="footer">
-        Di Cetak Pada Tanggal {{ $date }} <br>
-        <a href="">{{ route('order.show', $order->id) }}</a>
     </div>
 </body>
 
