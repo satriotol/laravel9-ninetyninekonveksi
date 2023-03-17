@@ -3,13 +3,10 @@
     <div class="app-sidebar">
         <div class="side-header">
             <a class="header-brand1" href="{{ route('dashboard') }}">
-                <img src="http://usahaku.xyz/uploads/image/03172023145524-NINETYNINE%20LOGO%20web.png" class="header-brand-img desktop-logo"
-                    alt="logo">
-                <img src="http://usahaku.xyz/uploads/image/03172023145524-NINETYNINE%20LOGO%20web.png" class="header-brand-img toggle-logo"
-                    alt="logo">
-                <img src="http://usahaku.xyz/uploads/image/03172023145524-NINETYNINE%20LOGO%20web.png" class="header-brand-img light-logo"
-                    alt="logo">
-                <img src="http://usahaku.xyz/uploads/image/03172023145524-NINETYNINE%20LOGO%20web.png" style="width:2rem"
+                <img src="{{ asset('uploads/' . $setting->logo) }}" class="header-brand-img desktop-logo" alt="logo">
+                <img src="{{ asset('uploads/' . $setting->logo) }}" class="header-brand-img toggle-logo" alt="logo">
+                <img src="{{ asset('uploads/' . $setting->logo) }}" class="header-brand-img light-logo" alt="logo">
+                <img src="{{ asset('uploads/' . $setting->logo) }}" style="width:2rem"
                     class="header-brand-img light-logo1" alt="logo">
             </a>
             <!-- LOGO -->
@@ -22,11 +19,6 @@
             <ul class="side-menu">
                 <li class="sub-category">
                     <h3>Main</h3>
-                </li>
-                <li class="slide">
-                    <a class="side-menu__item {{ active_class(['dashboard']) }}" data-bs-toggle="slide"
-                        href="{{ route('dashboard') }}"><i class="side-menu__icon fe fe-home"></i><span
-                            class="side-menu__label">Dashboard</span></a>
                 </li>
                 @can('order-index')
                     <li>
@@ -60,8 +52,9 @@
                 @endcan
                 @can('setting-index')
                     <li>
-                        <a class="side-menu__item {{ active_class(['setting.*']) }}" href="{{ route('setting.index') }}"><i
-                                class="side-menu__icon fe fe-grid"></i><span class="side-menu__label">setting</span></a>
+                        <a class="side-menu__item {{ active_class(['setting.*']) }}"
+                            href="{{ route('setting.index') }}"><i class="side-menu__icon fe fe-grid"></i><span
+                                class="side-menu__label">setting</span></a>
                     </li>
                 @endcan
                 @can('user-index')

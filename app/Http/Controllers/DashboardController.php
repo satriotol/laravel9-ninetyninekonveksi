@@ -19,7 +19,7 @@ class DashboardController extends Controller
 {
     public function dashboard()
     {
-        return view('backend.dashboard');
+        return redirect(route('order.index'));
     }
     public function storeUserDetail(Request $request)
     {

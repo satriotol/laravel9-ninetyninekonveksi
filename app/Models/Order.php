@@ -77,4 +77,12 @@ class Order extends Model implements Auditable
     {
         return $this->totalPayment() - $this->totalPrice();
     }
+    public function getStatus()
+    {
+        if ($this->totalKekurangan() >= 0) {
+            return 'Lunas';
+        } else {
+            return 'Belum Lunas';
+        }
+    }
 }

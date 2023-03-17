@@ -28,7 +28,6 @@
                                     <th>Nama Pemesan</th>
                                     <th>Nomor HP</th>
                                     <th>Tanggal</th>
-                                    <th>Deskripsi Tambahan</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -43,7 +42,6 @@
                                             <div class="badge bg-primary">{{ $order->start_at }}</div> s/d <div
                                                 class="badge bg-primary">{{ $order->end_at }}</div>
                                         </td>
-                                        <td>{{ $order->description }}</td>
                                         <td class="text-center">
                                             <form action="{{ route('order.destroy', $order->id) }}" method="post">
                                                 @csrf

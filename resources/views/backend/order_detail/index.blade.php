@@ -38,6 +38,7 @@
                     <tr>
                         <td>Status</td>
                         <td>:</td>
+                        <td>{{ $order->getStatus() }}</td>
                     </tr>
                 </table>
             </div>
