@@ -27,8 +27,7 @@
                                     <th>Judul</th>
                                     <th>Nama Pemesan</th>
                                     <th>Nomor HP</th>
-                                    <th>Tanggal Awal</th>
-                                    <th>Tanggal Akhir</th>
+                                    <th>Tanggal</th>
                                     <th>Deskripsi Tambahan</th>
                                     <th>Action</th>
                                 </tr>
@@ -36,12 +35,14 @@
                             <tbody>
                                 @foreach ($orders as $order)
                                     <tr>
-                                        <td>{{ $order->user->name }}</td>
-                                        <td>{{ $order->title }}</td>
-                                        <td>{{ $order->name }}</td>
+                                        <td class="text-wrap">{{ $order->user->name }}</td>
+                                        <td class="text-wrap">{{ $order->title }}</td>
+                                        <td class="text-wrap">{{ $order->name }}</td>
                                         <td>{{ $order->phone }}</td>
-                                        <td>{{ $order->start_at }}</td>
-                                        <td>{{ $order->end_at }}</td>
+                                        <td>
+                                            <div class="badge bg-primary">{{ $order->start_at }}</div> s/d <div
+                                                class="badge bg-primary">{{ $order->end_at }}</div>
+                                        </td>
                                         <td>{{ $order->description }}</td>
                                         <td class="text-center">
                                             <form action="{{ route('order.destroy', $order->id) }}" method="post">

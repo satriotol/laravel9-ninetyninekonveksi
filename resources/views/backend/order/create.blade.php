@@ -10,7 +10,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-{{ isset($order) ? '5' : '12' }}">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Form Order</h3>
@@ -67,7 +67,6 @@
                         <div class='form-group'>
                             {!! Form::label('description', 'Deskripsi Tambahan') !!}
                             {!! Form::textarea('description', isset($order) ? $order->description : @old('description'), [
-                                'required',
                                 'class' => 'form-control summernote',
                                 'placeholder' => 'Masukkan Deskripsi Tambahan',
                             ]) !!}</div>
@@ -79,11 +78,6 @@
                 </div>
             </div>
         </div>
-        @isset($order)
-            <div class="col-md-7">
-                @include('backend.order_detail.index')
-            </div>
-        @endisset
     </div>
 @endsection
 @push('custom-scripts')

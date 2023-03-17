@@ -52,6 +52,10 @@ class Order extends Model implements Auditable
         }
         return $totalPrice;
     }
+    public function totalUntung()
+    {
+        return $this->totalPrice() - $this->totalRealPrice();
+    }
     public function totalPayment()
     {
         $totalPayment = 0;
@@ -59,5 +63,9 @@ class Order extends Model implements Auditable
             $totalPayment += $order_payment->value;
         }
         return $totalPayment;
+    }
+    public function totalKekurangan()
+    {
+        return $this->totalPayment() - $this->totalPrice();
     }
 }

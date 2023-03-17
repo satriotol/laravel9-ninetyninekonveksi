@@ -150,6 +150,7 @@
                         <td>Rp. {{ number_format($order->totalPrice()) }} <br>
                             <div class="badge bg-primary">Rp. {{ number_format($order->totalRealPrice()) }}
                             </div>
+                            <div class="badge bg-success">Rp. {{ number_format($order->totalUntung()) }}</div>
                         </td>
                     </tr>
 
@@ -224,6 +225,10 @@
                     <tr>
                         <td colspan="3" class="text-center">Total Pembayaran</td>
                         <td>Rp. {{ number_format($order->totalPayment()) }}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="text-center">Total Kekurangan</td>
+                        <td>Rp. {{ number_format($order->totalKekurangan()) }}</td>
                     </tr>
                 </tbody>
             </table>
