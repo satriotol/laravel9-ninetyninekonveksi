@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 use OwenIt\Auditing\Contracts\Auditable;
 use OwenIt\Auditing\Auditable as AuditableTrait;
 use Illuminate\Support\Str;
@@ -35,6 +36,14 @@ class Order extends Model implements Auditable
     public function order_payments()
     {
         return $this->hasMany(OrderPayment::class, 'order_id', 'id');
+    }
+    public static function getOrders()
+    {
+        if (Auth::user()->getUserRole(Auth::user()) == 'RESELLER') {
+            return Order::where('user_id', Auth::user()->id)->paginate();
+        } else {
+            return Order::paginate();
+        }
     }
     public function totalPrice()
     {
