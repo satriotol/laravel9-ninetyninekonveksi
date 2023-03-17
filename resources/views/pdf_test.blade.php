@@ -135,7 +135,7 @@
     </div>
     <div class="left-asset">
 
-        <img class="img-logo" src="http://usahaku.xyz/uploads/image/03172023145524-NINETYNINE%20LOGO%20web.png" alt="">
+        {{-- <img class="img-logo" src="http://usahaku.xyz/uploads/image/03172023145524-NINETYNINE%20LOGO%20web.png" alt=""> --}}
         <p class="title color-dg">
             Faktur INV/{{ $order->id }}
         </p>
