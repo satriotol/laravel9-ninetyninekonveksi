@@ -87,19 +87,15 @@
             color: #026930;
         }
 
-        table,
-        td {
-            border-bottom: 3px solid #76AF30;
+        table {
+            border: 3px solid #76AF30;
+            border: 3px solid #76AF30;
             border-collapse: collapse;
-        }
-
-        th {
-            border-top: 3px solid #76AF30;
-            color: #76AF30;
         }
 
         th,
         td {
+            border: 1px solid;
             padding: 5px;
             text-align: center;
         }
@@ -127,7 +123,7 @@
         <table style="width: 600px;top: 325px;position: absolute;">
             <tr>
                 <th>Produk</th>
-                <th>Kuantitas</th>
+                <th>Jumlah</th>
                 <th>Harga</th>
                 <th>Subtotal</th>
             </tr>
@@ -146,6 +142,14 @@
                 <td colspan="3" class="text-center">Total Harga</td>
                 <td>Rp. {{ number_format($order->totalPrice()) }} <br>
                 </td>
+            </tr>
+            <tr>
+                <td colspan="3" class="text-center">Total Pembayaran</td>
+                <td>Rp. {{ number_format($order->totalPayment()) }}</td>
+            </tr>
+            <tr>
+                <td colspan="3" class="text-center">Total Kekurangan</td>
+                <td>Rp. {{ number_format($order->totalKekurangan()) }}</td>
             </tr>
         </table>
     </div>
