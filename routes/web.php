@@ -28,7 +28,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect(route('dashboard'));
 });
 Route::get('/reload-captcha', [CaptchaServiceController::class, 'reloadCaptcha']);
 Route::post('upload/store', [UploadController::class, 'store'])->name('upload.store');
@@ -41,7 +41,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::resource('user', UserController::class);
     Route::resource('audit', AuditController::class);
     // CRUD_GENERATOR
-Route::resource('setting', SettingController::class);
+    Route::resource('setting', SettingController::class);
 
     Route::resource('order_payment', OrderPaymentController::class);
     Route::resource('order_detail', OrderDetailController::class);
