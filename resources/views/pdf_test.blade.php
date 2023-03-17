@@ -68,9 +68,9 @@
 
         p.contact-info {
             position: absolute;
-            width: 169px;
-            left: 450px;
-            top: 35px;
+            width: 100%;
+            left: 400px;
+            top: 100px;
         }
 
         p.title-order {
@@ -115,6 +115,9 @@
 </head>
 
 <body>
+    <div class="title" style="position: absolute; left:25%;font-size:30px">
+        <h3>NINETYNINE INVOICE</h3>
+    </div>
     <p class="contact-info"><b>NINENTYNINE KONVEKSI</b><br>
         {{ $order->user->name }} <br>
         Telp. {{ $order->user->phone_number }} <br>
