@@ -45,8 +45,8 @@
                 <!-- CONTAINER OPEN -->
                 <div class="col col-login mx-auto mt-7">
                     <div class="text-center">
-                        <img src="{{ asset('Lambang_Kota_Semarang.png') }}" style="height: 50px"
-                            class="header-brand-img" alt="">
+                        <img src="http://usahaku.xyz/uploads/image/03172023145524-NINETYNINE%20LOGO%20web.png"
+                            style="height: 50px" class="header-brand-img" alt="">
                     </div>
                 </div>
 
@@ -106,12 +106,12 @@
                                                 <button type="submit"
                                                     class="login100-form-btn btn-primary">Masuk</button>
                                             </div>
-                                            <div class="text-center pt-3">
+                                            {{-- <div class="text-center pt-3">
                                                 <p class="text-dark mb-0">Tidak Punya Akun ?<a
                                                         href="{{ route('register') }}"
                                                         class="text-primary ms-1">Daftar</a>
                                                 </p>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </form>
                                 </div>

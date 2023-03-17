@@ -3,13 +3,13 @@
     <div class="app-sidebar">
         <div class="side-header">
             <a class="header-brand1" href="{{ route('dashboard') }}">
-                <img src="{{ asset('backend_assets/images/LambangSemarang.png') }}" class="header-brand-img desktop-logo"
+                <img src="http://usahaku.xyz/uploads/image/03172023145524-NINETYNINE%20LOGO%20web.png" class="header-brand-img desktop-logo"
                     alt="logo">
-                <img src="{{ asset('backend_assets/images/LambangSemarang.png') }}" class="header-brand-img toggle-logo"
+                <img src="http://usahaku.xyz/uploads/image/03172023145524-NINETYNINE%20LOGO%20web.png" class="header-brand-img toggle-logo"
                     alt="logo">
-                <img src="{{ asset('backend_assets/images/LambangSemarang.png') }}" class="header-brand-img light-logo"
+                <img src="http://usahaku.xyz/uploads/image/03172023145524-NINETYNINE%20LOGO%20web.png" class="header-brand-img light-logo"
                     alt="logo">
-                <img src="{{ asset('backend_assets/images/LambangSemarang.png') }}" style="width:2rem"
+                <img src="http://usahaku.xyz/uploads/image/03172023145524-NINETYNINE%20LOGO%20web.png" style="width:2rem"
                     class="header-brand-img light-logo1" alt="logo">
             </a>
             <!-- LOGO -->
