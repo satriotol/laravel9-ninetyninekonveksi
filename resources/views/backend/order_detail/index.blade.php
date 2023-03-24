@@ -232,24 +232,30 @@
                     </tr>
                     <tr>
                         <td colspan="3" class="text-center">Total Pembayaran</td>
-                        <td>Rp. {{ number_format($order->totalPayment()) }}</td>
+                        <td>Rp. {{ number_format($order->totalPayment()) }}
+                            <div class="badge bg-success">{{ number_format($order->totalRealPayment()) }}</div>
+                        </td>
                     </tr>
                     <tr>
                         <td colspan="3" class="text-center">Total Kekurangan</td>
-                        <td>Rp. {{ number_format($order->totalKekurangan()) }}</td>
+                        <td>Rp. {{ number_format($order->totalKekurangan()) }}
+                            <div class="badge bg-success">{{ number_format($order->totalRealKekurangan()) }}</div>
+
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
         <p>
             {{ $order->title }} <br>
-            {{ $order->start_at }} s/d {{ $order->end_at }} <br>
+            {{ $order->start_at }} s/d {{ $order->end_at }} <br><br>
             @foreach ($order->order_details as $order_detail)
                 {{ $order_detail->name }} : {{ $order_detail->qty }}pcs x Rp.
                 {{ number_format($order_detail->price) }} =
                 Rp. {{ number_format($order_detail->totalPrice()) }}
                 <br>
             @endforeach
+            <br>
             Total : Rp. {{ number_format($order->totalPrice()) }} <br>
             Sudah Dibayarkan : Rp. {{ number_format($order->totalPayment()) }} <br>
             Total Kekurangan : Rp. {{ number_format($order->totalKekurangan()) }} <br>
@@ -260,13 +266,14 @@
         </p>
         <p>
             {{ $order->title }} <br>
-            {{ $order->start_at }} s/d {{ $order->end_at }} <br>
+            {{ $order->start_at }} s/d {{ $order->end_at }} <br><br>
             @foreach ($order->order_details as $order_detail)
                 {{ $order_detail->name }} : {{ $order_detail->qty }}pcs x Rp.
                 {{ number_format($order_detail->original_price) }} =
                 Rp. {{ number_format($order_detail->totalRealPrice()) }}
                 <br>
             @endforeach
+            <br>
             Total : Rp. {{ number_format($order->totalRealPrice()) }} <br>
             Sudah Dibayarkan : Rp. {{ number_format($order->totalRealPayment()) }} <br>
             Total Kekurangan : Rp. {{ number_format($order->totalRealKekurangan()) }} <br>
