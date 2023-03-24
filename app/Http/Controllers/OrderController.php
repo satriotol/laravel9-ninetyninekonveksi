@@ -79,7 +79,7 @@ class OrderController extends Controller
         $setting = Setting::first();
         $date = Carbon::now();
         $pdf = Pdf::loadView('pdf_test', compact('order', 'date', 'setting'));
-        return $pdf->stream('test.pdf');
+        return $pdf->stream('INVOICE-' . $order->id . '.pdf');
     }
     public function cekOrder(Order $order)
     {

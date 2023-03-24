@@ -191,6 +191,12 @@
                                                         'class' => 'form-control',
                                                         'placeholder' => 'Masukkan Nominal',
                                                     ]) !!}</div>
+                                                <div class='form-group'>
+                                                    {!! Form::label('real_value', 'Nominal Asli') !!}
+                                                    {!! Form::text('real_value', isset($order_payment) ? $order_payment->real_value : @old('real_value'), [
+                                                        'class' => 'form-control',
+                                                        'placeholder' => 'Masukkan Nominal',
+                                                    ]) !!}</div>
 
                                                 <div class='form-group'>
                                                     {!! Form::label('date', 'Tanggal') !!}
@@ -211,6 +217,7 @@
                         <td>
                             @foreach ($order->order_payments as $order_payment)
                                 Rp. {{ number_format($order_payment->value) }}
+                                <div class="badge bg-success">{{ number_format($order_payment->real_value) }}</div>
                                 <form action="{{ route('order_payment.destroy', $order_payment->id) }}" method="post">
                                     @csrf
                                     @method('delete')
@@ -261,7 +268,7 @@
                 <br>
             @endforeach
             Total : Rp. {{ number_format($order->totalRealPrice()) }} <br>
-            Sudah Dibayarkan : Rp. {{ number_format($order->totalPayment()) }} <br>
+            Sudah Dibayarkan : Rp. {{ number_format($order->totalRealPayment()) }} <br>
             Total Kekurangan : Rp. {{ number_format($order->totalRealKekurangan()) }} <br>
             Status : {{ $order->getStatus() }}
         </p>

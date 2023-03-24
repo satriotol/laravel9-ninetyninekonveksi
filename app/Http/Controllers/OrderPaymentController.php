@@ -29,6 +29,7 @@ class OrderPaymentController extends Controller
         $data = $request->validate([
             'order_id' => 'required',
             'value' => 'required',
+            'real_value' => 'nullable',
             'date' => 'required',
         ]);
         OrderPayment::create($data);

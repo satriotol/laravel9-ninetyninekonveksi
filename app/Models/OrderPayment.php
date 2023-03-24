@@ -15,7 +15,7 @@ class OrderPayment extends Model implements Auditable
 
     protected $table = 'order_payments';
 
-    protected $fillable = ["order_id", "value", "date"];
+    protected $fillable = ["order_id", "value", "date", "real_value"];
     protected static function boot()
     {
         parent::boot();
