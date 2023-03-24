@@ -33,6 +33,7 @@ Route::get('/', function () {
 Route::get('/reload-captcha', [CaptchaServiceController::class, 'reloadCaptcha']);
 Route::post('upload/store', [UploadController::class, 'store'])->name('upload.store');
 Route::delete('revert/image', [UploadController::class, 'revert'])->name('upload.revert');
+Route::get('order/cek/{order}', [OrderController::class, 'cekOrder'])->name('order.cekOrder');
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
     Route::get('/order/pdf/{order}', [OrderController::class, 'generatePdf'])->name('order.generatePdf');

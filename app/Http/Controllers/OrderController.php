@@ -81,4 +81,8 @@ class OrderController extends Controller
         $pdf = Pdf::loadView('pdf_test', compact('order', 'date', 'setting'));
         return $pdf->stream('test.pdf');
     }
+    public function cekOrder(Order $order)
+    {
+        return $order;
+    }
 }
