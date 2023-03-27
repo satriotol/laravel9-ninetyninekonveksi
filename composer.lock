@@ -2147,16 +2147,16 @@
         },
         {
             "name": "league/commonmark",
-            "version": "2.3.9",
+            "version": "2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "c1e114f74e518daca2729ea8c4bf1167038fa4b5"
+                "reference": "d44a24690f16b8c1808bf13b1bd54ae4c63ea048"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/c1e114f74e518daca2729ea8c4bf1167038fa4b5",
-                "reference": "c1e114f74e518daca2729ea8c4bf1167038fa4b5",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/d44a24690f16b8c1808bf13b1bd54ae4c63ea048",
+                "reference": "d44a24690f16b8c1808bf13b1bd54ae4c63ea048",
                 "shasum": ""
             },
             "require": {
@@ -2192,7 +2192,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "2.4-dev"
+                    "dev-main": "2.5-dev"
                 }
             },
             "autoload": {
@@ -2249,7 +2249,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-02-15T14:07:24+00:00"
+            "time": "2023-03-24T15:16:10+00:00"
         },
         {
             "name": "league/config",
@@ -2551,25 +2551,25 @@
         },
         {
             "name": "mews/captcha",
-            "version": "3.2.10",
+            "version": "3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mewebstudio/captcha.git",
-                "reference": "9aa77b818d46df8f46be16c2aea61a8fe77cb5e6"
+                "reference": "8c439263d0ba42e6c05e4d1f3bee0a2b97e675d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mewebstudio/captcha/zipball/9aa77b818d46df8f46be16c2aea61a8fe77cb5e6",
-                "reference": "9aa77b818d46df8f46be16c2aea61a8fe77cb5e6",
+                "url": "https://api.github.com/repos/mewebstudio/captcha/zipball/8c439263d0ba42e6c05e4d1f3bee0a2b97e675d5",
+                "reference": "8c439263d0ba42e6c05e4d1f3bee0a2b97e675d5",
                 "shasum": ""
             },
             "require": {
                 "ext-gd": "*",
-                "illuminate/config": "~5|^6|^7|^8|^9",
-                "illuminate/filesystem": "~5|^6|^7|^8|^9",
-                "illuminate/hashing": "~5|^6|^7|^8|^9",
-                "illuminate/session": "~5|^6|^7|^8|^9",
-                "illuminate/support": "~5|^6|^7|^8|^9",
+                "illuminate/config": "~5|^6|^7|^8|^9|^10.0",
+                "illuminate/filesystem": "~5|^6|^7|^8|^9|^10.0",
+                "illuminate/hashing": "~5|^6|^7|^8|^9|^10.0",
+                "illuminate/session": "~5|^6|^7|^8|^9|^10.0",
+                "illuminate/support": "~5|^6|^7|^8|^9|^10.0",
                 "intervention/image": "~2.5",
                 "php": "^7.2|^8.0"
             },
@@ -2618,9 +2618,9 @@
             ],
             "support": {
                 "issues": "https://github.com/mewebstudio/captcha/issues",
-                "source": "https://github.com/mewebstudio/captcha/tree/3.2.10"
+                "source": "https://github.com/mewebstudio/captcha/tree/3.3.0"
             },
-            "time": "2022-12-14T08:58:32+00:00"
+            "time": "2023-03-14T08:30:02+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -3119,16 +3119,16 @@
         },
         {
             "name": "owen-it/laravel-auditing",
-            "version": "v13.3.0",
+            "version": "v13.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/owen-it/laravel-auditing.git",
-                "reference": "6c0746f35648911600ff95b19aec47ab429ba084"
+                "reference": "f7da93ef11a28a6dc656168d0479a37bd3843b59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/owen-it/laravel-auditing/zipball/6c0746f35648911600ff95b19aec47ab429ba084",
-                "reference": "6c0746f35648911600ff95b19aec47ab429ba084",
+                "url": "https://api.github.com/repos/owen-it/laravel-auditing/zipball/f7da93ef11a28a6dc656168d0479a37bd3843b59",
+                "reference": "f7da93ef11a28a6dc656168d0479a37bd3843b59",
                 "shasum": ""
             },
             "require": {
@@ -3203,7 +3203,7 @@
                 "issues": "https://github.com/owen-it/laravel-auditing/issues",
                 "source": "https://github.com/owen-it/laravel-auditing"
             },
-            "time": "2023-03-10T15:01:57+00:00"
+            "time": "2023-03-17T11:39:04+00:00"
         },
         {
             "name": "phenx/php-font-lib",
@@ -3785,16 +3785,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.11.12",
+            "version": "v0.11.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "52cb7c47d403c31c0adc9bf7710fc355f93c20f7"
+                "reference": "722317c9f5627e588788e340f29b923e58f92f54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/52cb7c47d403c31c0adc9bf7710fc355f93c20f7",
-                "reference": "52cb7c47d403c31c0adc9bf7710fc355f93c20f7",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/722317c9f5627e588788e340f29b923e58f92f54",
+                "reference": "722317c9f5627e588788e340f29b923e58f92f54",
                 "shasum": ""
             },
             "require": {
@@ -3855,9 +3855,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bobthecow/psysh/issues",
-                "source": "https://github.com/bobthecow/psysh/tree/v0.11.12"
+                "source": "https://github.com/bobthecow/psysh/tree/v0.11.13"
             },
-            "time": "2023-01-29T21:24:40+00:00"
+            "time": "2023-03-21T14:22:44+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -4145,12 +4145,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/satriotol/fastcrud.git",
-                "reference": "af0f299c8409d0c002cc194b93f531247f0e4303"
+                "reference": "7466bb2b8f04b08ed973b163f2c30faac2bcd9e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/satriotol/fastcrud/zipball/af0f299c8409d0c002cc194b93f531247f0e4303",
-                "reference": "af0f299c8409d0c002cc194b93f531247f0e4303",
+                "url": "https://api.github.com/repos/satriotol/fastcrud/zipball/7466bb2b8f04b08ed973b163f2c30faac2bcd9e6",
+                "reference": "7466bb2b8f04b08ed973b163f2c30faac2bcd9e6",
                 "shasum": ""
             },
             "require": {
@@ -4164,7 +4164,6 @@
                 "laravelcollective/html": "^6.0",
                 "mews/captcha": "^3.2",
                 "owen-it/laravel-auditing": "^13.0",
-                "php": "^8.0.2",
                 "spatie/laravel-permission": "^5.7"
             },
             "default-branch": true,
@@ -4199,20 +4198,20 @@
                 "issues": "https://github.com/satriotol/fastcrud/issues",
                 "source": "https://github.com/satriotol/fastcrud/tree/master"
             },
-            "time": "2023-03-12T13:24:15+00:00"
+            "time": "2023-03-26T13:23:05+00:00"
         },
         {
             "name": "spatie/laravel-permission",
-            "version": "5.9.1",
+            "version": "5.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-permission.git",
-                "reference": "a88ed98c8937442737e0c50163682e832d608f13"
+                "reference": "5d0a703ece4636e6bde98eb85ac72b40aa6e42bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/a88ed98c8937442737e0c50163682e832d608f13",
-                "reference": "a88ed98c8937442737e0c50163682e832d608f13",
+                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/5d0a703ece4636e6bde98eb85ac72b40aa6e42bc",
+                "reference": "5d0a703ece4636e6bde98eb85ac72b40aa6e42bc",
                 "shasum": ""
             },
             "require": {
@@ -4273,7 +4272,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-permission/issues",
-                "source": "https://github.com/spatie/laravel-permission/tree/5.9.1"
+                "source": "https://github.com/spatie/laravel-permission/tree/5.10.0"
             },
             "funding": [
                 {
@@ -4281,7 +4280,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-02-06T21:37:02+00:00"
+            "time": "2023-03-22T02:57:36+00:00"
         },
         {
             "name": "symfony/console",
@@ -7844,16 +7843,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "9.6.5",
+            "version": "9.6.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "86e761949019ae83f49240b2f2123fb5ab3b2fc5"
+                "reference": "b65d59a059d3004a040c16a82e07bbdf6cfdd115"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/86e761949019ae83f49240b2f2123fb5ab3b2fc5",
-                "reference": "86e761949019ae83f49240b2f2123fb5ab3b2fc5",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/b65d59a059d3004a040c16a82e07bbdf6cfdd115",
+                "reference": "b65d59a059d3004a040c16a82e07bbdf6cfdd115",
                 "shasum": ""
             },
             "require": {
@@ -7926,7 +7925,8 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.6.5"
+                "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.6.6"
             },
             "funding": [
                 {
@@ -7942,7 +7942,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-03-09T06:34:10+00:00"
+            "time": "2023-03-27T11:43:46+00:00"
         },
         {
             "name": "sebastian/cli-parser",

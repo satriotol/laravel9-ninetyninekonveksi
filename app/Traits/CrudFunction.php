@@ -62,11 +62,17 @@ trait CrudFunction
         foreach ($data['tables'] as $d) {
             $first = "<div class='form-group'>\n";
             $label = "{!! Form::label('{$d['name']}', '{$d['tampilan']}') !!}\n";
-            if ($d["type"] == "string" || $d["type"] == "unsignedBigInteger") {
+            if ($d["type"] == "string") {
                 $input = "{!! Form::text('{$d['name']}', isset(\${$data['singular']}) ? \${$data['singular']}->{$d['name']} : @old('{$d['name']}'), [
                     'required',
                     'class' => 'form-control',
                     'placeholder' => 'Masukkan {$d['tampilan']}',
+                ]) !!}";
+            } elseif ($d["type"] == "uuid" || $d["type"] == "unsignedBigInteger") {
+                $input = "{!! Form::select('{$d['name']}', '', isset(\${$data['singular']}) ? \${$data['singular']}->{$d['name']} : @old('{$d['name']}'), [
+                    'class' => 'form-control select2',
+                    'required',
+                    'placeholder' => 'Pilih {$d['tampilan']}'
                 ]) !!}";
             } elseif ($d['type'] == "longText") {
                 $input = "{!! Form::textarea('{$d['name']}', isset(\${$data['singular']}) ? \${$data['singular']}->{$d['name']} : @old('{$d['name']}'), [
