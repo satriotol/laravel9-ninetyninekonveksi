@@ -32,4 +32,8 @@ class OrderDetail extends Model implements Auditable
     {
         return $this->price * $this->qty;
     }
+    public function totalKeuntungan()
+    {
+        return $this->totalPrice() - $this->totalRealPrice();
+    }
 }

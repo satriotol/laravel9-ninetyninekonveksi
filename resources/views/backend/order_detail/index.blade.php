@@ -143,6 +143,8 @@
                             <td>Rp. {{ number_format($order_detail->totalPrice()) }} <br>
                                 <div class="badge bg-primary">Rp. {{ number_format($order_detail->totalRealPrice()) }}
                                 </div>
+                                <div class="badge bg-success">{{ number_format($order_detail->totalKeuntungan()) }}
+                                </div>
                             </td>
                         </tr>
                     @endforeach
