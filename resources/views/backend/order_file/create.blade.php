@@ -5,7 +5,7 @@
     @isset($order_file)
         @method('PUT')
     @endisset
-    <div class='form-group'>
+    <div class='form-group d-none'>
         {!! Form::label('order_id', 'Order Id') !!}
         {!! Form::text('order_id', $order->id, ['class' => '']) !!}
     </div>
