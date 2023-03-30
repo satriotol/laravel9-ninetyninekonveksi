@@ -1684,16 +1684,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v9.52.4",
+            "version": "v9.52.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "9239128cfb4d22afefb64060dfecf53e82987267"
+                "reference": "e14d28c0f9403630d13f308bb43f3d3cb73d6d67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/9239128cfb4d22afefb64060dfecf53e82987267",
-                "reference": "9239128cfb4d22afefb64060dfecf53e82987267",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/e14d28c0f9403630d13f308bb43f3d3cb73d6d67",
+                "reference": "e14d28c0f9403630d13f308bb43f3d3cb73d6d67",
                 "shasum": ""
             },
             "require": {
@@ -1878,7 +1878,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2023-02-22T14:38:06+00:00"
+            "time": "2023-03-28T18:03:54+00:00"
         },
         {
             "name": "laravel/sanctum",
@@ -3785,16 +3785,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.11.13",
+            "version": "v0.11.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "722317c9f5627e588788e340f29b923e58f92f54"
+                "reference": "8c2e264def7a8263a68ef6f0b55ce90b77d41e17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/722317c9f5627e588788e340f29b923e58f92f54",
-                "reference": "722317c9f5627e588788e340f29b923e58f92f54",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/8c2e264def7a8263a68ef6f0b55ce90b77d41e17",
+                "reference": "8c2e264def7a8263a68ef6f0b55ce90b77d41e17",
                 "shasum": ""
             },
             "require": {
@@ -3855,9 +3855,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bobthecow/psysh/issues",
-                "source": "https://github.com/bobthecow/psysh/tree/v0.11.13"
+                "source": "https://github.com/bobthecow/psysh/tree/v0.11.14"
             },
-            "time": "2023-03-21T14:22:44+00:00"
+            "time": "2023-03-28T03:41:01+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -3999,12 +3999,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramsey/uuid.git",
-                "reference": "bf2bee216a4379eaf62162307d62bb7850405fec"
+                "reference": "8e955307d32dc9b6992440ff81321d3cb09db75a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramsey/uuid/zipball/bf2bee216a4379eaf62162307d62bb7850405fec",
-                "reference": "bf2bee216a4379eaf62162307d62bb7850405fec",
+                "url": "https://api.github.com/repos/ramsey/uuid/zipball/8e955307d32dc9b6992440ff81321d3cb09db75a",
+                "reference": "8e955307d32dc9b6992440ff81321d3cb09db75a",
                 "shasum": ""
             },
             "require": {
@@ -4084,7 +4084,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-02-07T16:14:23+00:00"
+            "time": "2023-03-27T22:05:11+00:00"
         },
         {
             "name": "sabberworm/php-css-parser",
@@ -4145,12 +4145,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/satriotol/fastcrud.git",
-                "reference": "d0b0a50cec4d963282f4d3dbea9adfe3e6a2d71d"
+                "reference": "c52ccc8f196592bba88cf00ee5411cfcc18f1516"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/satriotol/fastcrud/zipball/d0b0a50cec4d963282f4d3dbea9adfe3e6a2d71d",
-                "reference": "d0b0a50cec4d963282f4d3dbea9adfe3e6a2d71d",
+                "url": "https://api.github.com/repos/satriotol/fastcrud/zipball/c52ccc8f196592bba88cf00ee5411cfcc18f1516",
+                "reference": "c52ccc8f196592bba88cf00ee5411cfcc18f1516",
                 "shasum": ""
             },
             "require": {
@@ -4198,7 +4198,7 @@
                 "issues": "https://github.com/satriotol/fastcrud/issues",
                 "source": "https://github.com/satriotol/fastcrud/tree/master"
             },
-            "time": "2023-03-27T13:08:44+00:00"
+            "time": "2023-03-29T02:05:29+00:00"
         },
         {
             "name": "spatie/laravel-permission",
@@ -7130,16 +7130,16 @@
         },
         {
             "name": "laravel/sail",
-            "version": "v1.21.2",
+            "version": "v1.21.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/sail.git",
-                "reference": "19d6fe167e2389b41fe1b4ee52293d1eaf8a43fc"
+                "reference": "3042ff8cf403817c340d5a7762b2d32900239f46"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/sail/zipball/19d6fe167e2389b41fe1b4ee52293d1eaf8a43fc",
-                "reference": "19d6fe167e2389b41fe1b4ee52293d1eaf8a43fc",
+                "url": "https://api.github.com/repos/laravel/sail/zipball/3042ff8cf403817c340d5a7762b2d32900239f46",
+                "reference": "3042ff8cf403817c340d5a7762b2d32900239f46",
                 "shasum": ""
             },
             "require": {
@@ -7191,7 +7191,7 @@
                 "issues": "https://github.com/laravel/sail/issues",
                 "source": "https://github.com/laravel/sail"
             },
-            "time": "2023-03-06T14:23:15+00:00"
+            "time": "2023-03-13T01:22:10+00:00"
         },
         {
             "name": "mockery/mockery",
