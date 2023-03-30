@@ -18,3 +18,31 @@
         <button class="btn btn-primary" type="submit">Submit</button>
     </div>
 </form>
+<div class="table-responsive">
+    <table class="table border table-bordered text-nowrap text-md-nowrap table-sm mb-0">
+        <thead>
+            <tr class="text-center">
+                <th>File</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($order->order_files as $order_file)
+                <tr>
+                    <td><a href="{{ asset('uploads/' . $order_file->file) }}" target="_blank">Buka File</a></td>
+                    <td class="text-center">
+                        <form action="{{ route('order_file.destroy', $order_file->id) }}" method="post">
+                            @csrf
+                            @method('delete')
+                            <a class="btn btn-sm btn-warning" href="{{ route('order_file.edit', $order_file->id) }}">
+                                Edit
+                            </a>
+                            <input type="submit" class="btn btn-sm btn-danger"
+                                onclick="return confirm('Are you sure?')" value="Delete" id="">
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>

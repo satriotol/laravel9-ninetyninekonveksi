@@ -37,6 +37,10 @@ class Order extends Model implements Auditable
     {
         return $this->hasMany(OrderPayment::class, 'order_id', 'id');
     }
+    public function order_files()
+    {
+        return $this->hasMany(OrderFile::class, 'order_id', 'id');
+    }
     public static function getOrders()
     {
         if (Auth::user()->getUserRole(Auth::user()) == 'RESELLER') {
