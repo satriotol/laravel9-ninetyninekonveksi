@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\OrderFile;
+use App\Models\TemporaryFile;
 
 class OrderFileController extends Controller
 {
@@ -18,7 +19,7 @@ class OrderFileController extends Controller
     public function index()
     {
         $order_files = OrderFile::paginate();
-        return view('backend.order_file.index',compact('order_files'));
+        return view('backend.order_file.index', compact('order_files'));
     }
     public function create()
     {
@@ -27,11 +28,22 @@ class OrderFileController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-
+            'order_id' => 'required',
+            'files' => 'nullable'
         ]);
-        OrderFile::create($data);
+        foreach ($request['files'] as $file) {
+            $files = TemporaryFile::where('filename', $file)->first();
+            if ($files) {
+                $data['files'] = $files->filename;
+                OrderFile::create([
+                    'order_id' => $request->order_id,
+                    'file' => $data['files']
+                ]);
+                $files->delete();
+            };
+        }
         session()->flash('success');
-        return redirect(route('order_file.index'));
+        return back();
     }
     public function edit(OrderFile $order_file)
     {
@@ -39,8 +51,7 @@ class OrderFileController extends Controller
     }
     public function update(Request $request, OrderFile $order_file)
     {
-        $data = $request->validate([
-        ]);
+        $data = $request->validate([]);
         $order_file->update($data);
         session()->flash('success');
         return redirect(route('order_file.index'));

@@ -12,7 +12,7 @@
 
     <div class='form-group'>
         {!! Form::label('file', 'File') !!}
-        {!! Form::file('file', ['class' => 'form-control upload-filepond', 'multiple']) !!}
+        {!! Form::file('files[]', ['class' => 'form-control upload-filepond', 'multiple']) !!}
     </div>
     <div class="text-end">
         <button class="btn btn-primary" type="submit">Submit</button>

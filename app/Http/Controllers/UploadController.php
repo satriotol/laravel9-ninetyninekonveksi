@@ -23,7 +23,7 @@ class UploadController extends Controller
             ]);
             return $file;
         };
-        
+
         if ($request->hasFile('logo')) {
             $file = $request->file('logo');
             $name = $file->getClientOriginalName();
@@ -45,6 +45,18 @@ class UploadController extends Controller
                     'filename' => $images
                 ]);
                 return $images;
+            }
+        };
+        if ($request->hasFile('files')) {
+            foreach ($request->file('files') as $files) {
+                $name = $files->getClientOriginalName();
+                $image_name = date('mdYHis') . '-' . $name;
+                $files = $files->storeAs('files', $image_name, 'public_uploads');
+
+                TemporaryFile::create([
+                    'filename' => $files
+                ]);
+                return $files;
             }
         };
     }
