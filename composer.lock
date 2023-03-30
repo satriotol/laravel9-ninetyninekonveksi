@@ -4145,12 +4145,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/satriotol/fastcrud.git",
-                "reference": "7466bb2b8f04b08ed973b163f2c30faac2bcd9e6"
+                "reference": "d0b0a50cec4d963282f4d3dbea9adfe3e6a2d71d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/satriotol/fastcrud/zipball/7466bb2b8f04b08ed973b163f2c30faac2bcd9e6",
-                "reference": "7466bb2b8f04b08ed973b163f2c30faac2bcd9e6",
+                "url": "https://api.github.com/repos/satriotol/fastcrud/zipball/d0b0a50cec4d963282f4d3dbea9adfe3e6a2d71d",
+                "reference": "d0b0a50cec4d963282f4d3dbea9adfe3e6a2d71d",
                 "shasum": ""
             },
             "require": {
@@ -4198,7 +4198,7 @@
                 "issues": "https://github.com/satriotol/fastcrud/issues",
                 "source": "https://github.com/satriotol/fastcrud/tree/master"
             },
-            "time": "2023-03-26T13:23:05+00:00"
+            "time": "2023-03-27T13:08:44+00:00"
         },
         {
             "name": "spatie/laravel-permission",
