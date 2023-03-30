@@ -284,7 +284,7 @@
             </p>
         </div>
         <div class="col-md-6">
-            
+            @include('backend.order_payment.create')
         </div>
     </div>
 </div>
