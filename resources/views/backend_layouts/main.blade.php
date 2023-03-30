@@ -156,13 +156,13 @@
 
     <script>
         const inputElement = document.querySelector('.upload-filepond');
-        const validation = {
-            acceptedFileTypes: ['image/*', 'application/pdf']
-        };
+        // const validation = {
+        //     acceptedFileTypes: ['image/*', 'application/pdf']
+        // };
         FilePond.registerPlugin(
             FilePondPluginFileValidateType,
         );
-        const pond = FilePond.create(inputElement, validation);
+        const pond = FilePond.create(inputElement);
         FilePond.setOptions({
             server: {
                 process: '{{ route('upload.store') }}',
