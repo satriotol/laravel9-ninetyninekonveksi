@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\UserController;
 // URL_CRUD_GENERATOR
+use App\Http\Controllers\OrderFileController;
 use App\Http\Controllers\SettingController;
 
 use App\Http\Controllers\OrderPaymentController;
@@ -42,6 +43,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::resource('user', UserController::class);
     Route::resource('audit', AuditController::class);
     // CRUD_GENERATOR
+Route::resource('order_file', OrderFileController::class);
     Route::resource('setting', SettingController::class);
 
     Route::resource('order_payment', OrderPaymentController::class);

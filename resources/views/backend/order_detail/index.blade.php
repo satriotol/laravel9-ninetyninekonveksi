@@ -248,38 +248,43 @@
                 </tbody>
             </table>
         </div>
-        <p>
-            {{ $order->title }} <br>
-            {{ $order->start_at }} s/d {{ $order->end_at }} <br><br>
-            @foreach ($order->order_details as $order_detail)
-                {{ $order_detail->name }} : {{ $order_detail->qty }}pcs x Rp.
-                {{ number_format($order_detail->price) }} =
-                Rp. {{ number_format($order_detail->totalPrice()) }}
+        <div class="col-md-6">
+            <p>
+                {{ $order->title }} <br>
+                {{ $order->start_at }} s/d {{ $order->end_at }} <br><br>
+                @foreach ($order->order_details as $order_detail)
+                    {{ $order_detail->name }} : {{ $order_detail->qty }}pcs x Rp.
+                    {{ number_format($order_detail->price) }} =
+                    Rp. {{ number_format($order_detail->totalPrice()) }}
+                    <br>
+                @endforeach
                 <br>
-            @endforeach
-            <br>
-            Total : Rp. {{ number_format($order->totalPrice()) }} <br>
-            Sudah Dibayarkan : Rp. {{ number_format($order->totalPayment()) }} <br>
-            Total Kekurangan : Rp. {{ number_format($order->totalKekurangan()) }} <br>
-            Status : {{ $order->getStatus() }}
-        </p>
-        <p>
-            ============= ORIGINAL PRICE ================
-        </p>
-        <p>
-            {{ $order->title }} <br>
-            {{ $order->start_at }} s/d {{ $order->end_at }} <br><br>
-            @foreach ($order->order_details as $order_detail)
-                {{ $order_detail->name }} : {{ $order_detail->qty }}pcs x Rp.
-                {{ number_format($order_detail->original_price) }} =
-                Rp. {{ number_format($order_detail->totalRealPrice()) }}
+                Total : Rp. {{ number_format($order->totalPrice()) }} <br>
+                Sudah Dibayarkan : Rp. {{ number_format($order->totalPayment()) }} <br>
+                Total Kekurangan : Rp. {{ number_format($order->totalKekurangan()) }} <br>
+                Status : {{ $order->getStatus() }}
+            </p>
+            <p>
+                ============= ORIGINAL PRICE ================
+            </p>
+            <p>
+                {{ $order->title }} <br>
+                {{ $order->start_at }} s/d {{ $order->end_at }} <br><br>
+                @foreach ($order->order_details as $order_detail)
+                    {{ $order_detail->name }} : {{ $order_detail->qty }}pcs x Rp.
+                    {{ number_format($order_detail->original_price) }} =
+                    Rp. {{ number_format($order_detail->totalRealPrice()) }}
+                    <br>
+                @endforeach
                 <br>
-            @endforeach
-            <br>
-            Total : Rp. {{ number_format($order->totalRealPrice()) }} <br>
-            Sudah Dibayarkan : Rp. {{ number_format($order->totalRealPayment()) }} <br>
-            Total Kekurangan : Rp. {{ number_format($order->totalRealKekurangan()) }} <br>
-            Status : {{ $order->getStatus() }}
-        </p>
+                Total : Rp. {{ number_format($order->totalRealPrice()) }} <br>
+                Sudah Dibayarkan : Rp. {{ number_format($order->totalRealPayment()) }} <br>
+                Total Kekurangan : Rp. {{ number_format($order->totalRealKekurangan()) }} <br>
+                Status : {{ $order->getStatus() }}
+            </p>
+        </div>
+        <div class="col-md-6">
+            
+        </div>
     </div>
 </div>
