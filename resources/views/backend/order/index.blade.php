@@ -27,6 +27,7 @@
                                     <th>Judul</th>
                                     <th>Nama Pemesan</th>
                                     <th>Nomor HP</th>
+                                    <th>Total</th>
                                     <th>Tanggal</th>
                                     <th>Action</th>
                                 </tr>
@@ -35,9 +36,14 @@
                                 @foreach ($orders as $order)
                                     <tr>
                                         <td class="text-wrap">{{ $order->user->name }}</td>
-                                        <td class="text-wrap">{{ $order->title }}</td>
+                                        <td class="text-wrap">{{ $order->title }} <br>
+                                            <div class="badge bg-info">Dibuat Tanggal {{ $order->created_at }}</div>
+                                        </td>
                                         <td class="text-wrap">{{ $order->name }}</td>
                                         <td>{{ $order->phone }}</td>
+                                        <td>Rp. {{ number_format($order->totalPrice()) }} <br>
+                                            <div class="badge bg-info">{{ $order->getStatus() }}</div>
+                                        </td>
                                         <td>
                                             <div class="badge bg-primary">{{ $order->start_at }}</div> s/d <div
                                                 class="badge bg-primary">{{ $order->end_at }}</div>
