@@ -120,7 +120,9 @@
     </div>
     <p class="contact-info"><b>NINENTYNINE KONVEKSI</b><br>
         Marketing : {{ $order->user->name }} <br>
-        Email : {{ $order->user->email }}
+        PEMESAN<br>
+        Nama : {{ $order->name }} <br>
+        Nomor HP : {{ $order->phone }}
     </p>
     {{-- <p class="title-order">{{ $order->judul }}/{{ $order->cust_name }}</p> --}}
     <div class="date-in">
