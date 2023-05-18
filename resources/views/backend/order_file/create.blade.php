@@ -11,7 +11,7 @@
     </div>
 
     <div class='form-group'>
-        {!! Form::label('file', 'File') !!}
+        {!! Form::label('file', 'Data Dukung') !!}
         {!! Form::file('files[]', ['class' => 'form-control upload-filepond', 'multiple']) !!}
     </div>
     <div class="text-end">
