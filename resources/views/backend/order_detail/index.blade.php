@@ -106,8 +106,9 @@
                                         'required',
                                         'class' => 'form-control',
                                         'placeholder' => 'Masukkan Harga Asli',
-                                    ]) !!}</div>
-                                <small class="text-danger">Harget Reseller</small>
+                                    ]) !!}
+                                    <small class="text-danger">Harget Reseller</small>
+                                </div>
                                 <div class="text-end">
                                     <button class="btn btn-primary" type="submit">Submit</button>
                                 </div>
