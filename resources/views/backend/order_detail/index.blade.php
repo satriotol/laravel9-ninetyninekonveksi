@@ -107,7 +107,7 @@
                                         'class' => 'form-control',
                                         'placeholder' => 'Masukkan Harga Asli',
                                     ]) !!}
-                                    <small class="text-danger">Harget Reseller</small>
+                                    <small class="text-danger">Harga Reseller</small>
                                 </div>
                                 <div class="text-end">
                                     <button class="btn btn-primary" type="submit">Submit</button>
