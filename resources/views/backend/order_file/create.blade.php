@@ -34,9 +34,6 @@
                         <form action="{{ route('order_file.destroy', $order_file->id) }}" method="post">
                             @csrf
                             @method('delete')
-                            <a class="btn btn-sm btn-warning" href="{{ route('order_file.edit', $order_file->id) }}">
-                                Edit
-                            </a>
                             <input type="submit" class="btn btn-sm btn-danger"
                                 onclick="return confirm('Are you sure?')" value="Delete" id="">
                         </form>
