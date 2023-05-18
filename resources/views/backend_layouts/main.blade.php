@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="INSPEKTORAT SEMARANG">
+    <meta name="description" content="NINETYNINE KONVEKSI">
     <meta name="author" content="Spruko Technologies Private Limited">
     <meta name="keywords"
         content="admin,admin dashboard,admin panel,admin template,bootstrap,clean,dashboard,flat,jquery,modern,responsive,premium admin templates,responsive admin,ui,ui kit.">
@@ -16,7 +16,7 @@
     {{-- <link rel="shortcut icon" type="image/x-icon" href="{{ asset('backend_assets/images/LambangSemarang.png') }}" /> --}}
 
     <!-- TITLE -->
-    <title>SEMARANG</title>
+    <title>NINETYNINE KONVEKSI</title>
 
     <!-- BOOTSTRAP CSS -->
     <link id="style" href="{{ asset('backend_assets/plugins/bootstrap/css/bootstrap.min.css') }}"
