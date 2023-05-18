@@ -22,7 +22,7 @@
     <table class="table border table-bordered text-nowrap text-md-nowrap table-sm mb-0">
         <thead>
             <tr class="text-center">
-                <th>File</th>
+                <th>Data Dukung</th>
                 <th>Action</th>
             </tr>
         </thead>
