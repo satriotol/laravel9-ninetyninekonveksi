@@ -252,7 +252,8 @@
                 </tbody>
             </table>
         </div>
-        <div class="row">
+        <hr>
+        <div class="row mt-2">
 
             <div class="col-md-6">
                 <p>
