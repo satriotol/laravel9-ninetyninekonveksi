@@ -18,10 +18,10 @@ class UserController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('permission:user-index|user-create|user-edit|user-delete', ['only' => ['index', 'show']]);
-        $this->middleware('permission:user-create', ['only' => ['create', 'store']]);
-        $this->middleware('permission:user-edit', ['only' => ['edit', 'update']]);
-        $this->middleware('permission:user-delete', ['only' => ['destroy']]);
+        // $this->middleware('permission:user-index|user-create|user-edit|user-delete', ['only' => ['index', 'show']]);
+        // $this->middleware('permission:user-create', ['only' => ['create', 'store']]);
+        // $this->middleware('permission:user-edit', ['only' => ['edit', 'update']]);
+        // $this->middleware('permission:user-delete', ['only' => ['destroy']]);
     }
     public function index()
     {
@@ -39,6 +39,12 @@ class UserController extends Controller
         $roles = User::getRoles(Auth::user());
         return view('backend.user.create', compact('roles'));
     }
+    public function datadiri()
+    {
+        $user = Auth::user();
+        return view('backend.user.create', compact('user'));
+    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -93,21 +99,38 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $data = $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required|unique:users,email,' . $user->id,
-            'password' => 'nullable|confirmed',
-            'roles' => 'required'
-        ]);
-        $data = $request->except('password');
-        if ($request->password) {
-            $data['password'] = Hash::make($request->password);
+        if ($request->type == 'datadiri') {
+            $data = $this->validate($request, [
+                'name' => 'required',
+                'email' => 'required|unique:users,email,' . $user->id,
+                'password' => 'nullable|confirmed',
+                'phone' => 'required'
+            ]);
+            $data = $request->except('password');
+            if ($request->password) {
+                $data['password'] = Hash::make($request->password);
+            }
+            $user->update($data);
+            session()->flash('success');
+            return back();
+        } else {
+            $data = $this->validate($request, [
+                'name' => 'required',
+                'email' => 'required|unique:users,email,' . $user->id,
+                'password' => 'nullable|confirmed',
+                'roles' => 'required',
+                'phone' => 'required'
+            ]);
+            $data = $request->except('password');
+            if ($request->password) {
+                $data['password'] = Hash::make($request->password);
+            }
+            $user->update($data);
+            DB::table('model_has_roles')->where('model_id', $user->id)->delete();
+            $user->assignRole($request['roles']);
+            session()->flash('success');
+            return redirect(route('user.index'));
         }
-        $user->update($data);
-        DB::table('model_has_roles')->where('model_id', $user->id)->delete();
-        $user->assignRole($request['roles']);
-        session()->flash('success');
-        return redirect(route('user.index'));
     }
 
     /**

@@ -34,6 +34,11 @@
                                 Pesanan</span></a>
                     </li>
                 @endcan
+                <li>
+                    <a class="side-menu__item {{ active_class(['user.datadiri']) }}"
+                        href="{{ route('user.datadiri') }}"><i class="side-menu__icon fe fe-grid"></i><span
+                            class="side-menu__label">Data Diri</span></a>
+                </li>
                 @canany(['crud-index'])
                     <li class="sub-category">
                         <h3>CRUD</h3>

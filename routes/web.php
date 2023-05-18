@@ -41,9 +41,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::resource('permission', PermissionController::class);
     Route::resource('role', RoleController::class);
     Route::resource('user', UserController::class);
+    Route::get('user/update/datadiri', [UserController::class, 'datadiri'])->name('user.datadiri');
     Route::resource('audit', AuditController::class);
     // CRUD_GENERATOR
-Route::resource('order_file', OrderFileController::class);
+    Route::resource('order_file', OrderFileController::class);
     Route::resource('setting', SettingController::class);
 
     Route::resource('order_payment', OrderPaymentController::class);
