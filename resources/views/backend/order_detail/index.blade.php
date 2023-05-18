@@ -91,7 +91,7 @@
                                     ]) !!}</div>
 
                                 <div class='form-group'>
-                                    {!! Form::label('price', 'Harga') !!}
+                                    {!! Form::label('price', 'Harga /pcs') !!}
                                     {!! Form::text('price', isset($order_detail) ? $order_detail->price : @old('price'), [
                                         'required',
                                         'class' => 'form-control',
@@ -101,7 +101,7 @@
                                 </div>
 
                                 <div class='form-group'>
-                                    {!! Form::label('original_price', 'Harga Asli') !!}
+                                    {!! Form::label('original_price', 'Harga Asli /pcs') !!}
                                     {!! Form::text('original_price', isset($order_detail) ? $order_detail->original_price : @old('original_price'), [
                                         'required',
                                         'class' => 'form-control',
