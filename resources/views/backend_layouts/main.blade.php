@@ -13,7 +13,7 @@
         content="admin,admin dashboard,admin panel,admin template,bootstrap,clean,dashboard,flat,jquery,modern,responsive,premium admin templates,responsive admin,ui,ui kit.">
 
     <!-- FAVICON -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('backend_assets/images/LambangSemarang.png') }}" />
+    {{-- <link rel="shortcut icon" type="image/x-icon" href="{{ asset('backend_assets/images/LambangSemarang.png') }}" /> --}}
 
     <!-- TITLE -->
     <title>SEMARANG</title>
