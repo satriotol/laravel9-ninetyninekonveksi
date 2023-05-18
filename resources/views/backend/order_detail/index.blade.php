@@ -96,7 +96,9 @@
                                         'required',
                                         'class' => 'form-control',
                                         'placeholder' => 'Masukkan Harga',
-                                    ]) !!}</div>
+                                    ]) !!}
+                                    <small class="text-danger">Harga Penjualan</small>
+                                </div>
 
                                 <div class='form-group'>
                                     {!! Form::label('original_price', 'Harga Asli') !!}
@@ -105,6 +107,7 @@
                                         'class' => 'form-control',
                                         'placeholder' => 'Masukkan Harga Asli',
                                     ]) !!}</div>
+                                <small class="text-danger">Harget Reseller</small>
                                 <div class="text-end">
                                     <button class="btn btn-primary" type="submit">Submit</button>
                                 </div>
