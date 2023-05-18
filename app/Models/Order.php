@@ -44,9 +44,9 @@ class Order extends Model implements Auditable
     public static function getOrders()
     {
         if (Auth::user()->getUserRole(Auth::user()) == 'RESELLER') {
-            return Order::where('user_id', Auth::user()->id)->paginate();
+            return Order::where('user_id', Auth::user()->id)->latest()->paginate();
         } else {
-            return Order::paginate();
+            return Order::latest()->paginate();
         }
     }
     public function totalPrice()

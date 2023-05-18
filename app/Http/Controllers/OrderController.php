@@ -37,12 +37,12 @@ class OrderController extends Controller
             "phone" => 'required',
             "start_at" => 'required',
             "end_at" => 'required',
-            "description" => 'required'
+            "description" => 'nullable'
         ]);
         $data['user_id'] = Auth::user()->id;
         $order = Order::create($data);
         session()->flash('success');
-        return redirect(route('order.edit', $order->id));
+        return redirect(route('order.show', $order->id));
     }
     public function show(Order $order)
     {
@@ -61,7 +61,7 @@ class OrderController extends Controller
             "phone" => 'required',
             "start_at" => 'required',
             "end_at" => 'required',
-            "description" => 'required'
+            "description" => 'nullable'
         ]);
         $order->update($data);
         session()->flash('success');
