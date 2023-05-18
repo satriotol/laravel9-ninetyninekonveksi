@@ -47,22 +47,28 @@
                                 'class' => 'form-control',
                                 'placeholder' => 'Masukkan Nomor HP',
                             ]) !!}</div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class='form-group'>
+                                    {!! Form::label('start_at', 'Tanggal Order') !!}
+                                    {!! Form::date('start_at', isset($order) ? $order->start_at : @old('start_at'), [
+                                        'required',
+                                        'class' => 'form-control',
+                                        'placeholder' => 'Masukkan Tanggal Order',
+                                    ]) !!}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
 
-                        <div class='form-group'>
-                            {!! Form::label('start_at', 'Tanggal Awal') !!}
-                            {!! Form::date('start_at', isset($order) ? $order->start_at : @old('start_at'), [
-                                'required',
-                                'class' => 'form-control',
-                                'placeholder' => 'Masukkan Tanggal Awal',
-                            ]) !!}</div>
-
-                        <div class='form-group'>
-                            {!! Form::label('end_at', 'Tanggal Akhir') !!}
-                            {!! Form::date('end_at', isset($order) ? $order->end_at : @old('end_at'), [
-                                'required',
-                                'class' => 'form-control',
-                                'placeholder' => 'Masukkan Tanggal Akhir',
-                            ]) !!}</div>
+                                <div class='form-group'>
+                                    {!! Form::label('end_at', 'Tanggal Selesai') !!}
+                                    {!! Form::date('end_at', isset($order) ? $order->end_at : @old('end_at'), [
+                                        'required',
+                                        'class' => 'form-control',
+                                        'placeholder' => 'Masukkan Tanggal Selesai',
+                                    ]) !!}</div>
+                            </div>
+                        </div>
 
                         <div class='form-group'>
                             {!! Form::label('description', 'Deskripsi Tambahan') !!}
