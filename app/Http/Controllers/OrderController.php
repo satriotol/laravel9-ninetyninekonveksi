@@ -77,8 +77,9 @@ class OrderController extends Controller
     {
         $order = Order::find($orderId);
         $setting = Setting::first();
+        $imagePath = public_path('uploads/' . $setting->logo);
         $date = Carbon::now();
-        $pdf = Pdf::loadView('pdf_test', compact('order', 'date', 'setting'));
+        $pdf = Pdf::loadView('pdf_test', compact('order', 'date', 'setting', 'imagePath'));
         return $pdf->stream('INVOICE-' . $order->id . '.pdf');
     }
     public function cekOrder(Order $order)

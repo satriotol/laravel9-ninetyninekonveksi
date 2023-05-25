@@ -1,107 +1,32 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <title>NINETYNINE INVOICE</title>
+    <title>NINETYNINE KONVEKSI</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <style>
+        /* Atur lebar maksimum agar sesuai dengan lebar halaman PDF */
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
 
-        @media print {
-            body {
-                width: 21cm;
-                height: 29.7cm;
-            }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
         }
 
-        .left-asset {
-            position: absolute;
-            left: 35px;
+        /* Atur flex-basis untuk kolom agar rata */
+        .col {
+            flex-basis: 0;
+            flex-grow: 1;
+            max-width: 100%;
         }
 
-        .left-asset .img-logo {
-            position: absolute;
-            top: 26px;
-            width: 169px;
-            height: auto;
-        }
-
-        .left-asset .title {
-            position: relative;
-            top: 200px;
-            font-size: 20px;
-            line-height: 23px;
-            font-weight: bold;
-        }
-
-        .date-in {
-            left: 35px;
-            position: absolute;
-            top: 250px;
-            font-style: normal;
-            font-weight: bold;
-            font-size: 12px;
-            line-height: 30px;
-            color: #76AF30;
-        }
-
-        .date-out {
-            left: 150px;
-            position: absolute;
-            top: 250px;
-            font-style: normal;
-            font-weight: bold;
-            font-size: 12px;
-            line-height: 30px;
-            color: #76AF30;
-        }
-
-        p {
-            font-size: 12px;
-            line-height: 14px;
-        }
-
-        p.contact-info {
-            position: absolute;
-            width: 100%;
-            left: 400px;
-            top: 100px;
-        }
-
-        p.title-order {
-            position: absolute;
-            width: 100%;
-            left: 400px;
-            top: 144px;
-            font-weight: bold;
-            font-size: 12px;
-            line-height: 14px;
-        }
-
-        .color-dg {
-            color: #026930;
-        }
-
-        table {
-            border: 3px solid #76AF30;
-            border: 3px solid #76AF30;
-            border-collapse: collapse;
-        }
-
-        th,
-        td {
-            border: 1px solid;
-            padding: 5px;
-            text-align: center;
-        }
-
-        .none-border {
-            border: 0px;
+        /* Atur margin agar ada jarak antara kolom */
+        .col:not(:last-child) {
+            margin-right: 15px;
         }
 
         .footer {
@@ -115,41 +40,40 @@
 </head>
 
 <body>
-    <div class="title" style="position: absolute; left:25%;font-size:30px">
-        <h3>NINETYNINE INVOICE</h3>
+    <div class="text-center">
+        <img src="{{ $imagePath }}" width="200" alt="">
     </div>
-    <p class="contact-info"><b>NINENTYNINE KONVEKSI</b><br>
-        Marketing : {{ $order->user->name }} <br>
-        PEMESAN<br>
-        Nama : {{ $order->name }} <br>
-        Nomor HP : {{ $order->phone }}
-    </p>
-    {{-- <p class="title-order">{{ $order->judul }}/{{ $order->cust_name }}</p> --}}
-    <div class="date-in">
-        <p>Tanggal Faktur</p>
-        <p style="color: black;">{{ $order->start_at }}</p>
-    </div>
-    <div class="date-out">
-        <p>Jatuh Tempo</p>
-        <p style="color: black;">{{ $order->end_at }}</p>
-    </div>
-    <div class="footer">
-        Di Cetak Pada Tanggal {{ $date }} <br>
-        <a href="">{{ route('order.show', $order->id) }}</a>
-    </div>
-    <div class="left-asset">
+    <table class="mt-5">
+        <tr>
+            <th>Judul Artikel</th>
+            <td>:</td>
+            <td>{{ $order->title }}</td>
+        </tr>
+        <tr>
+            <th>Nama</th>
+            <td>:</td>
+            <td>{{ $order->name }}</td>
+        </tr>
+        <tr>
+            <th>Nomor HP</th>
+            <td>:</td>
+            <td>{{ $order->phone }}</td>
+        </tr>
+        <tr>
+            <th>Timeline Pemesanan</th>
+            <td>:</td>
+            <td>{{ $order->start_at }} s/d {{ $order->end_at }}</td>
+        </tr>
+    </table>
+    <table class="table table-sm table-bordered mt-3">
+        <thead class="table-success">
+            <th>Produk</th>
+            <th>Jumlah</th>
+            <th>Harga</th>
+            <th>Subtotal</th>
+        </thead>
+        <tbody>
 
-        {{-- <img class="img-logo" src="http://usahaku.xyz/uploads/image/03172023145524-NINETYNINE%20LOGO%20web.png" alt=""> --}}
-        <p class="title color-dg">
-            Faktur INV/{{ $order->id }}
-        </p>
-        <table style="width: 600px;top: 325px;position: absolute;">
-            <tr>
-                <th>Produk</th>
-                <th>Jumlah</th>
-                <th>Harga</th>
-                <th>Subtotal</th>
-            </tr>
             @foreach ($order->order_details as $order_detail)
                 <tr>
                     <td>{{ $order_detail->name }} <br>
@@ -174,8 +98,41 @@
                 <td colspan="3" class="text-center">Total Kekurangan</td>
                 <td>Rp. {{ number_format($order->totalKekurangan()) }}</td>
             </tr>
+        </tbody>
+    </table>
+    <div style="margin-left:55%">
+        Data Marketing
+        <table>
+            <tr>
+                <th>Nama</th>
+                <td>:</td>
+                <td>{{ $order->user->name }}</td>
+            </tr>
+            <tr>
+                <th>Nomor HP</th>
+                <td>:</td>
+                <td>{{ $order->user->phone }}</td>
+            </tr>
         </table>
     </div>
+    <div>
+        <p>
+            Untuk Pembayaran Anda Dapat Melalui <br>
+            {{ $order->user->nama_bank }} <br>
+            <b>{{ $order->user->nomor_bank }}</b> <br>
+            Untuk Nominal DP 50% = <b> Rp. {{ number_format($order->totalPrice() / 2) }}</b>
+        </p>
+    </div>
+    <div class="footer text-center">
+        Di Cetak Pada Tanggal {{ $date }} <br>
+        <a href="">{{ route('order.show', $order->id) }}</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>

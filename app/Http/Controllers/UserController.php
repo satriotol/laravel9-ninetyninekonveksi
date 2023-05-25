@@ -58,7 +58,9 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|unique:users,email|email',
             'password' => 'required|confirmed',
-            'roles' => 'required'
+            'roles' => 'required',
+            'nama_bank' => 'required',
+            'nomor_bank' => 'required',
         ]);
         $data['password'] = Hash::make($request->password);
         $user = User::create($data);
@@ -104,7 +106,9 @@ class UserController extends Controller
                 'name' => 'required',
                 'email' => 'required|unique:users,email,' . $user->id,
                 'password' => 'nullable|confirmed',
-                'phone' => 'required'
+                'phone' => 'required',
+                'nama_bank' => 'required',
+                'nomor_bank' => 'required',
             ]);
             $data = $request->except('password');
             if ($request->password) {
@@ -119,7 +123,9 @@ class UserController extends Controller
                 'email' => 'required|unique:users,email,' . $user->id,
                 'password' => 'nullable|confirmed',
                 'roles' => 'required',
-                'phone' => 'required'
+                'phone' => 'required',
+                'nama_bank' => 'required',
+                'nomor_bank' => 'required',
             ]);
             $data = $request->except('password');
             if ($request->password) {

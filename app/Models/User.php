@@ -31,7 +31,9 @@ class User extends Authenticatable implements Auditable
         'password',
         'last_signin_at',
         'last_ip_address',
-        'phone'
+        'phone',
+        'nama_bank',
+        'nomor_bank',
     ];
 
     /**

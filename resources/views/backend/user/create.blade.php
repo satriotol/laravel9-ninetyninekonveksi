@@ -53,6 +53,24 @@
                             ]) !!}
 
                         </div>
+                        <div class="form-group">
+                            {!! Form::label('nama_bank', 'Nama Bank') !!}
+                            {!! Form::text('nama_bank', isset($user) ? $user->nama_bank : @old('nama_bank'), [
+                                'required',
+                                'class' => 'form-control',
+                                'placeholder' => 'Masukkan Nama Bank',
+                            ]) !!}
+
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('nomor_bank', 'Nomor Rekening') !!}
+                            {!! Form::number('nomor_bank', isset($user) ? $user->nomor_bank : @old('nomor_bank'), [
+                                'required',
+                                'class' => 'form-control',
+                                'placeholder' => 'Masukkan Nomor Rekening',
+                            ]) !!}
+
+                        </div>
                         @if (!Route::is('user.datadiri'))
                             <div class="form-group">
                                 <label for="roles">Role</label>
