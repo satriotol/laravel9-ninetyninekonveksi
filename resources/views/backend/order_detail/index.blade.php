@@ -48,77 +48,7 @@
                 PDF</a>
             <button class="btn btn-sm btn-primary" type="button" data-bs-toggle="modal"
                 data-bs-target="#exampleModal">Tambah Pesanan</button>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Detail Pemesanan</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body text-start">
-                            <form
-                                action="@isset($order_detail) {{ route('order_detail.update', $order_detail->id) }} @endisset @empty($order_detail) {{ route('order_detail.store') }} @endempty"
-                                method="POST" enctype="multipart/form-data">
-                                @csrf
-                                @isset($order_detail)
-                                    @method('PUT')
-                                @endisset
-                                <div class='form-group d-none'>
-                                    {!! Form::label('order_id', 'Order') !!}
-                                    {!! Form::text('order_id', $order->id, [
-                                        'required',
-                                        'class' => 'form-control',
-                                        'placeholder' => 'Masukkan Order',
-                                    ]) !!}
-                                </div>
-
-                                <div class='form-group'>
-                                    {!! Form::label('name', 'Jenis Pesanan') !!}
-                                    {!! Form::text('name', isset($order_detail) ? $order_detail->name : @old('name'), [
-                                        'required',
-                                        'class' => 'form-control',
-                                        'placeholder' => 'Masukkan Jenis Pesanan',
-                                    ]) !!}</div>
-
-                                <div class='form-group'>
-                                    {!! Form::label('qty', 'Kuantitas') !!}
-                                    {!! Form::text('qty', isset($order_detail) ? $order_detail->qty : @old('qty'), [
-                                        'required',
-                                        'class' => 'form-control',
-                                        'placeholder' => 'Masukkan Kuantitas',
-                                    ]) !!}</div>
-
-                                <div class='form-group'>
-                                    {!! Form::label('price', 'Harga /pcs') !!}
-                                    {!! Form::text('price', isset($order_detail) ? $order_detail->price : @old('price'), [
-                                        'required',
-                                        'class' => 'form-control',
-                                        'placeholder' => 'Masukkan Harga',
-                                        'oninput' => 'formatNumber(this)',
-                                    ]) !!}
-                                    <small class="text-danger">Harga Penjualan</small>
-                                </div>
-
-                                <div class='form-group'>
-                                    {!! Form::label('original_price', 'Harga Asli /pcs') !!}
-                                    {!! Form::text('original_price', isset($order_detail) ? $order_detail->original_price : @old('original_price'), [
-                                        'required',
-                                        'class' => 'form-control',
-                                        'placeholder' => 'Masukkan Harga Asli',
-                                        'oninput' => 'formatNumber(this)',
-                                    ]) !!}
-                                    <small class="text-danger">Harga Reseller</small>
-                                </div>
-                                <div class="text-end">
-                                    <button class="btn btn-primary" type="submit">Submit</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @include('backend.order_detail.components.modalTambahPesanan')
         </div>
         <div class="table-responsive">
             <table class="table border table-bordered text-nowrap text-md-nowrap table-sm mb-0">
@@ -137,9 +67,13 @@
                                 <form action="{{ route('order_detail.destroy', $order_detail->id) }}" method="post">
                                     @csrf
                                     @method('delete')
+
                                     <input type="submit" class="btn btn-sm btn-danger"
                                         onclick="return confirm('Are you sure?')" value="Delete" id="">
                                 </form>
+                                <button class="btn btn-sm btn-warning" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal{{ $order_detail->id }}">Edit Pesanan</button>
+                                @include('backend.order_detail.components.modalTambahPesanan')
                             </td>
                             <td>{{ $order_detail->qty }}</td>
                             <td>Rp. {{ number_format($order_detail->price) }} <br>

@@ -34,7 +34,10 @@
                             </thead>
                             <tbody>
                                 @foreach ($orders as $order)
-                                    <tr>
+                                    <tr @class([
+                                        'table-success' => $order->getStatus() == 'Lunas',
+                                        'table-danger' => $order->getStatus() == 'Belum Lunas',
+                                    ])>
                                         <td class="text-wrap">{{ $order->user->name }}</td>
                                         <td class="text-wrap">{{ $order->title }} <br>
                                             <div class="badge bg-info">Dibuat Tanggal {{ $order->created_at }}</div>
@@ -42,7 +45,11 @@
                                         <td class="text-wrap">{{ $order->name }}</td>
                                         <td>{{ $order->phone }}</td>
                                         <td>Rp. {{ number_format($order->totalPrice()) }} <br>
-                                            <div class="badge bg-info">{{ $order->getStatus() }}</div>
+                                            <div @class([
+                                                'badge',
+                                                'bg-success' => $order->getStatus() == 'Lunas',
+                                                'bg-danger' => $order->getStatus() == 'Belum Lunas',
+                                            ])>{{ $order->getStatus() }}</div>
                                         </td>
                                         <td>
                                             <div class="badge bg-primary">{{ $order->start_at }}</div> s/d <div

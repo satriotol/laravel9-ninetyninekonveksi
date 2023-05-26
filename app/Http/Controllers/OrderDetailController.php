@@ -43,10 +43,16 @@ class OrderDetailController extends Controller
     }
     public function update(Request $request, OrderDetail $order_detail)
     {
-        $data = $request->validate([]);
+        $data = $request->validate([
+            'order_id' => 'nullable',
+            "name" => 'required',
+            "qty" => 'required',
+            "price" => 'required',
+            "original_price" => 'nullable'
+        ]);
         $order_detail->update($data);
         session()->flash('success');
-        return redirect(route('order_detail.index'));
+        return back();
     }
     public function destroy(OrderDetail $order_detail)
     {
