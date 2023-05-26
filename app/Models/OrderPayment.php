@@ -16,6 +16,14 @@ class OrderPayment extends Model implements Auditable
     protected $table = 'order_payments';
 
     protected $fillable = ["order_id", "value", "date", "real_value"];
+    public function setValueAttribute($value)
+    {
+        $this->attributes['value'] = str_replace(',', '', $value);
+    }
+    public function setRealValueAttribute($value)
+    {
+        $this->attributes['real_value'] = str_replace(',', '', $value);
+    }
     protected static function boot()
     {
         parent::boot();

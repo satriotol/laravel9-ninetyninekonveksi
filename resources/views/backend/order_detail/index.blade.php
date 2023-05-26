@@ -96,6 +96,7 @@
                                         'required',
                                         'class' => 'form-control',
                                         'placeholder' => 'Masukkan Harga',
+                                        'oninput' => 'formatNumber(this)',
                                     ]) !!}
                                     <small class="text-danger">Harga Penjualan</small>
                                 </div>
@@ -106,6 +107,7 @@
                                         'required',
                                         'class' => 'form-control',
                                         'placeholder' => 'Masukkan Harga Asli',
+                                        'oninput' => 'formatNumber(this)',
                                     ]) !!}
                                     <small class="text-danger">Harga Reseller</small>
                                 </div>
@@ -196,12 +198,14 @@
                                                         'required',
                                                         'class' => 'form-control',
                                                         'placeholder' => 'Masukkan Nominal',
+                                                        'oninput' => 'formatNumber(this)',
                                                     ]) !!}</div>
                                                 <div class='form-group'>
                                                     {!! Form::label('real_value', 'Nominal Asli') !!}
                                                     {!! Form::text('real_value', isset($order_payment) ? $order_payment->real_value : @old('real_value'), [
                                                         'class' => 'form-control',
                                                         'placeholder' => 'Masukkan Nominal',
+                                                        'oninput' => 'formatNumber(this)',
                                                     ]) !!}</div>
 
                                                 <div class='form-group'>
@@ -297,3 +301,20 @@
 
     </div>
 </div>
+@push('custom-scripts')
+    <script>
+        function formatNumber(input) {
+            // Menghilangkan semua karakter kecuali angka dan tanda koma
+            let value = input.value.replace(/[^0-9,]/g, '');
+
+            // Menghapus tanda koma yang ada sebelum memformat
+            value = value.replace(/,/g, '');
+
+            // Memformat nilai dengan tanda koma
+            value = Number(value).toLocaleString('en');
+
+            // Mengatur nilai yang telah diformat kembali ke input
+            input.value = value;
+        }
+    </script>
+@endpush

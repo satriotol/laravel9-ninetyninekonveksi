@@ -24,6 +24,14 @@ class OrderDetail extends Model implements Auditable
             $model->{$model->getKeyName()} = Str::uuid()->toString();
         });
     }
+    public function setPriceAttribute($value)
+    {
+        $this->attributes['price'] = str_replace(',', '', $value);
+    }
+    public function setOriginalPriceAttribute($value)
+    {
+        $this->attributes['original_price'] = str_replace(',', '', $value);
+    }
     public function totalRealPrice()
     {
         return $this->original_price * $this->qty;
