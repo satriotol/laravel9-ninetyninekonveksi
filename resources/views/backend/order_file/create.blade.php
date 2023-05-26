@@ -11,7 +11,7 @@
     </div>
     <div class="form-group">
         {!! Form::label('name', 'Nama') !!}
-        {!! Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Masukkan Nama File']) !!}
+        {!! Form::text('name', '', ['class' => 'form-control', 'required', 'placeholder' => 'Masukkan Nama File']) !!}
     </div>
     <div class='form-group'>
         {!! Form::label('file', 'Data Dukung') !!}
