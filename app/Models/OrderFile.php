@@ -15,7 +15,7 @@ class OrderFile extends Model implements Auditable
 
     protected $table = 'order_files';
 
-    protected $fillable = ["order_id","file"];
+    protected $fillable = ["order_id", "file", "name"];
     protected static function boot()
     {
         parent::boot();

@@ -28,6 +28,7 @@ class OrderFileController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
+            'name' => 'required',
             'order_id' => 'required',
             'files' => 'nullable'
         ]);
@@ -37,6 +38,7 @@ class OrderFileController extends Controller
                 $data['files'] = $files->filename;
                 OrderFile::create([
                     'order_id' => $request->order_id,
+                    'name' => $request->name,
                     'file' => $data['files']
                 ]);
                 $files->delete();
