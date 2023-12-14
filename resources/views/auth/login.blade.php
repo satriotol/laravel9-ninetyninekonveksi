@@ -45,8 +45,8 @@
                 <!-- CONTAINER OPEN -->
                 <div class="col col-login mx-auto mt-7">
                     <div class="text-center">
-                        <img src="{{ asset('uploads/', $setting->logo) }}" style="height: 50px" class="header-brand-img"
-                            alt="">
+                        {{-- <img src="{{ asset('uploads/', $setting->logo) }}" style="height: 50px" class="header-brand-img"
+                            alt=""> --}}
                     </div>
                 </div>
 

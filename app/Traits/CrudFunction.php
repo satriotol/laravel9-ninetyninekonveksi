@@ -10,16 +10,28 @@ trait CrudFunction
 {
     protected function generateController($data)
     {
+        foreach ($data['tables'] as $d) {
+            if ($d['is_null'] == 0) {
+                $wajib = 'required';
+            } else {
+                $wajib = 'nullable';
+            }
+            $content = "'{$d['name']}' => '$wajib',";
+            $validations[] = $content;
+        }
+        $validations = trim(implode("\n", $validations));
         $controllerTemplate = str_replace(
             [
                 '{{modelName}}',
                 '{{modelNamePlural}}',
-                '{{modelNameSingular}}'
+                '{{modelNameSingular}}',
+                '{{validations}}',
             ],
             [
                 $data['model'],
                 $data['plural'],
-                $data['singular']
+                $data['singular'],
+                $validations,
             ],
             file_get_contents(resource_path("stubs/Controller.stub"))
         );
@@ -62,31 +74,36 @@ trait CrudFunction
         foreach ($data['tables'] as $d) {
             $first = "<div class='form-group'>\n";
             $label = "{!! Form::label('{$d['name']}', '{$d['tampilan']}') !!}\n";
-            if ($d["type"] == "string") {
-                $input = "{!! Form::text('{$d['name']}', isset(\${$data['singular']}) ? \${$data['singular']}->{$d['name']} : @old('{$d['name']}'), [
-                    'required',
-                    'class' => 'form-control',
-                    'placeholder' => 'Masukkan {$d['tampilan']}',
-                ]) !!}";
-            } elseif ($d["type"] == "uuid" || $d["type"] == "unsignedBigInteger") {
-                $input = "{!! Form::select('{$d['name']}', '', isset(\${$data['singular']}) ? \${$data['singular']}->{$d['name']} : @old('{$d['name']}'), [
-                    'class' => 'form-control select2',
-                    'required',
-                    'placeholder' => 'Pilih {$d['tampilan']}'
-                ]) !!}";
-            } elseif ($d['type'] == "longText") {
-                $input = "{!! Form::textarea('{$d['name']}', isset(\${$data['singular']}) ? \${$data['singular']}->{$d['name']} : @old('{$d['name']}'), [
-                    'required',
-                    'class' => 'form-control summernote',
-                    'placeholder' => 'Masukkan {$d['tampilan']}',
-                ]) !!}";
-            } elseif ($d['type'] == "date") {
-                $input = "{!! Form::date('{$d['name']}', isset(\${$data['singular']}) ? \${$data['singular']}->{$d['name']} : @old('{$d['name']}'), [
-                    'required',
-                    'class' => 'form-control',
-                    'placeholder' => 'Masukkan {$d['tampilan']}',
-                ]) !!}";
+            if ($d['is_file'] != null) {
+                $input = "{!! Form::file('{$d['name']}', ['id' => 'filepond','required','data-allow-reorder' => 'ture']) !!}";
+            } else {
+                if ($d["type"] == "string") {
+                    $input = "{!! Form::text('{$d['name']}', isset(\${$data['singular']}) ? \${$data['singular']}->{$d['name']} : @old('{$d['name']}'), [
+                        'required',
+                        'class' => 'form-control',
+                        'placeholder' => 'Masukkan {$d['tampilan']}',
+                    ]) !!}";
+                } elseif ($d["type"] == "uuid" || $d["type"] == "unsignedBigInteger") {
+                    $input = "{!! Form::select('{$d['name']}', '', isset(\${$data['singular']}) ? \${$data['singular']}->{$d['name']} : @old('{$d['name']}'), [
+                        'class' => 'form-control select2',
+                        'required',
+                        'placeholder' => 'Pilih {$d['tampilan']}'
+                    ]) !!}";
+                } elseif ($d['type'] == "longText") {
+                    $input = "{!! Form::textarea('{$d['name']}', isset(\${$data['singular']}) ? \${$data['singular']}->{$d['name']} : @old('{$d['name']}'), [
+                        'required',
+                        'class' => 'form-control summernote',
+                        'placeholder' => 'Masukkan {$d['tampilan']}',
+                    ]) !!}";
+                } elseif ($d['type'] == "date") {
+                    $input = "{!! Form::date('{$d['name']}', isset(\${$data['singular']}) ? \${$data['singular']}->{$d['name']} : @old('{$d['name']}'), [
+                        'required',
+                        'class' => 'form-control',
+                        'placeholder' => 'Masukkan {$d['tampilan']}',
+                    ]) !!}";
+                }
             }
+            $input .= "@error('{$d['name']}') <div class='text-danger'>{{ \$message }}</div>@enderror";
             $end = "</div>\n";
             $view[] = $first . $label . $input . $end;
         }

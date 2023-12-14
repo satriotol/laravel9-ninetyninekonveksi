@@ -4,9 +4,9 @@
             <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-bs-toggle="sidebar" href="javascript:void(0)"></a>
             <!-- sidebar-toggle-->
             <a class="logo-horizontal " href="{{ route('dashboard') }}">
-                <img src="{{ asset('uploads/' . $setting->logo) }}" class="header-brand-img desktop-logo" alt="logo">
+                {{-- <img src="{{ asset('uploads/' . $setting->logo) }}" class="header-brand-img desktop-logo" alt="logo">
                 <img src="{{ asset('uploads/' . $setting->logo) }}" style="height: 50px"
-                    class="header-brand-img light-logo1" alt="logo">
+                    class="header-brand-img light-logo1" alt="logo"> --}}
             </a>
             <!-- LOGO -->
             <div class="d-flex order-lg-2 ms-auto header-right-icons">

@@ -7,16 +7,16 @@
     <meta charset="UTF-8">
     <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="NINETYNINE KONVEKSI">
+    <meta name="description" content="INSPEKTORAT SEMARANG">
     <meta name="author" content="Spruko Technologies Private Limited">
     <meta name="keywords"
         content="admin,admin dashboard,admin panel,admin template,bootstrap,clean,dashboard,flat,jquery,modern,responsive,premium admin templates,responsive admin,ui,ui kit.">
 
     <!-- FAVICON -->
-    {{-- <link rel="shortcut icon" type="image/x-icon" href="{{ asset('backend_assets/images/LambangSemarang.png') }}" /> --}}
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('backend_assets/images/LambangSemarang.png') }}" />
 
     <!-- TITLE -->
-    <title>NINETYNINE KONVEKSI</title>
+    <title>SEMARANG</title>
 
     <!-- BOOTSTRAP CSS -->
     <link id="style" href="{{ asset('backend_assets/plugins/bootstrap/css/bootstrap.min.css') }}"
@@ -31,9 +31,9 @@
     <!-- COLOR SKIN CSS -->
     <link id="theme" rel="stylesheet" type="text/css" media="all"
         href="{{ asset('backend_assets/colors/color1.css') }}" />
-    <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
-    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
-        rel="stylesheet" />
+    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css"
+        rel="stylesheet">
+    <link href="https://unpkg.com/filepond/dist/filepond.min.css" rel="stylesheet">
 
     @stack('style')
     <style>
@@ -131,12 +131,22 @@
     <script src="{{ asset('backend_assets/js/custom.js') }}"></script>
     <script src="{{ asset('backend_assets/plugins/select2/select2.full.min.js') }}"></script>
     <script src="{{ asset('backend_assets/js/select2.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.16/dist/sweetalert2.all.min.js"></script>
     @if (session()->has('success'))
         <script>
             notif({
                 msg: "<b>Sukses:</b> Proses Anda Berhasil",
                 type: "success"
             });
+        </script>
+    @endif
+    @if (session()->has('bug'))
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: '{{ session()->get('bug') }}',
+            })
         </script>
     @endif
     <script>
@@ -149,28 +159,59 @@
                 .after('<span class="text-red">*</span>')
         })
     </script>
-
-    <script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
-    <script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
-    <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+    <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.js"></script>
+    <script src="https://unpkg.com/filepond/dist/filepond.min.js"></script>
+    <script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.min.js">
+    </script>
 
     <script>
-        const inputElement = document.querySelector('.upload-filepond');
-        // const validation = {
-        //     acceptedFileTypes: ['image/*', 'application/pdf']
-        // };
-        FilePond.registerPlugin(
-            FilePondPluginFileValidateType,
-        );
+        const inputElement = document.querySelector('#filepond');
         const pond = FilePond.create(inputElement);
-        FilePond.setOptions({
+
+        pond.setOptions({
             server: {
                 process: '{{ route('upload.store') }}',
                 revert: '{{ route('upload.revert') }}',
                 headers: {
                     'X-CSRF-TOKEN': '{{ csrf_token() }}'
                 }
-            },
+            }
+        });
+    </script>
+    <script>
+        const inputElements = document.querySelectorAll('.upload-filepond');
+        FilePond.registerPlugin(FilePondPluginFileValidateType);
+        inputElements.forEach(inputElement => {
+            FilePond.create(inputElement, {
+                acceptedFileTypes: ['application/pdf', 'image/jpeg', 'image/png', 'image/gif',
+                    'application/zip', 'application/x-rar-compressed'
+                ],
+                fileValidateTypeLabelExpectedTypes: {
+                    'application/pdf': '.pdf',
+                    'image/jpeg': '.jpeg, .jpg',
+                    'image/png': '.png',
+                    'image/gif': '.gif',
+                    'application/zip': '.zip',
+                    'application/x-rar-compressed': '.rar'
+                },
+                onaddfile: (error, file) => {
+                    if (error) {
+                        // Tampilkan pesan kesalahan jika file tidak sesuai dengan aturan validasi
+                        console.log(error);
+                    } else {
+                        // File sesuai dengan aturan validasi, lanjutkan dengan mengirimkan ke server
+                        console.log('File valid:', file);
+                    }
+                },
+                server: {
+                    process: '{{ route('upload.store') }}',
+                    revert: '{{ route('upload.revert') }}',
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    }
+                },
+                maxFileSize: '100MB'
+            });
         });
     </script>
     @stack('custom-scripts')

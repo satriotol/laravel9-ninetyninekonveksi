@@ -3,11 +3,11 @@
     <div class="app-sidebar">
         <div class="side-header">
             <a class="header-brand1" href="{{ route('dashboard') }}">
-                <img src="{{ asset('uploads/' . $setting->logo) }}" class="header-brand-img desktop-logo" alt="logo">
+                {{-- <img src="{{ asset('uploads/' . $setting->logo) }}" class="header-brand-img desktop-logo" alt="logo">
                 <img src="{{ asset('uploads/' . $setting->logo) }}" class="header-brand-img toggle-logo" alt="logo">
                 <img src="{{ asset('uploads/' . $setting->logo) }}" class="header-brand-img light-logo" alt="logo">
                 <img src="{{ asset('uploads/' . $setting->logo) }}" style="width:2rem"
-                    class="header-brand-img light-logo1" alt="logo">
+                    class="header-brand-img light-logo1" alt="logo"> --}}
             </a>
             <!-- LOGO -->
         </div>

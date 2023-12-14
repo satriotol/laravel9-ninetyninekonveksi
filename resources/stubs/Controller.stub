@@ -27,26 +27,35 @@ class {{modelName}}Controller extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-
+            {{validations}}
         ]);
+        //$image = TemporaryFile::where('filename', $request->image)->first();
+        //if ($image) {
+        //    $data['image'] = $image->filename;
+            //$image->delete();
+        //};
         {{modelName}}::create($data);
         session()->flash('success');
         return redirect(route('{{modelNameSingular}}.index'));
     }
-    public function edit({{modelName}} ${{modelNameSingular}})
+    public function edit($uuid)
     {
+        ${{modelNameSingular}} = {{modelName}}::where('uuid', $uuid)->firstOrFail();
         return view('backend.{{modelNameSingular}}.create', compact('{{modelNameSingular}}'));
     }
-    public function update(Request $request, {{modelName}} ${{modelNameSingular}})
+    public function update(Request $request, $uuid)
     {
+        ${{modelNameSingular}} = {{modelName}}::where('uuid', $uuid)->firstOrFail();
         $data = $request->validate([
+            {{validations}}
         ]);
         ${{modelNameSingular}}->update($data);
         session()->flash('success');
         return redirect(route('{{modelNameSingular}}.index'));
     }
-    public function destroy({{modelName}} ${{modelNameSingular}})
+    public function destroy($uuid)
     {
+        ${{modelNameSingular}} = {{modelName}}::where('uuid', $uuid)->firstOrFail();
         ${{modelNameSingular}}->delete();
         session()->flash('success');
         return back();
